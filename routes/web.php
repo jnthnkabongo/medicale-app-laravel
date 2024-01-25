@@ -22,10 +22,16 @@ Route::post('/', [authController::class, 'login'])->name('soumission');
 Route::get('gestion-app', [homeController::class, 'index'])->name('redirect');
 Route::get('logout', [authController::class, 'destroy'])->name('index');
 
-Route::middleware(['users'])->group(function () {
+Route::middleware(['connexion'])->group(function () {
     Route::get('index', [indexController::class, 'index'])->name('index');
 });
 
-Route::middleware(['administration'])->group(function () {
+Route::middleware('connexion')->group(function(){
+
+});
+
+Route::middleware(['administrateur'])->group(function () {
     Route::get('dashboard', [dashController::class, 'index'])->name('administration');
 });
+
+Route::get('page-404', [homeController::class, 'errorpage'])->name('page-404');

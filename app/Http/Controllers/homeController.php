@@ -22,6 +22,10 @@ class homeController extends Controller
         }
     }
 
+    public function errorpage()
+    {
+        return view('404');
+    }
     /**
      * Show the form for creating a new resource.
      */
