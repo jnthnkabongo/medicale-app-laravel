@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link id="theme-style" rel="stylesheet" href="{{ asset('assets/css/portal.css') }}">
+    @livewireStyles
     <title>Gestion Médicale</title>
 </head>
 <body>
@@ -140,7 +141,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span class="logo-text">Gestion Médicale</span></a>
+		            <a class="app-logo" href="{{ route('index') }}"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span class="logo-text">Gestion Médicale</span></a>
 
 		        </div><!--//app-branding-->
 
@@ -192,7 +193,7 @@
 						        <ul class="submenu-list list-unstyled">
 							        <li class="submenu-item"><a class="submenu-link" href="notifications.html">Corporate</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="account.html">Standars</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="settings.html">Autres</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{ route('formulaire-patient') }}">Autres</a></li>
 
 						        </ul>
 					        </div>
@@ -262,9 +263,11 @@
 	    </div><!--//app-sidepanel-->
     </header><!--//app-header-->
 
-    @yield('content')
+    <div class="bg-success">
+        @yield('content')
+    </div>
 
- 
+    @livewireScripts
     <script src="{{ asset('assets/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/chart.js/chart.min.js') }}"></script>
