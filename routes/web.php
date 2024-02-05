@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [authController::class, 'index'])->name('page-accueil'); //Page d'accueil
 Route::post('/', [authController::class, 'login'])->name('soumission');  //Soumission du formulaire
 Route::get('gestion-app', [homeController::class, 'index'])->name('redirect');  //Route de gestion des utilisateur
-Route::get('logout', [authController::class, 'destroy'])->name('index'); //Deconnexion de l'app
+Route::get('logout', [authController::class, 'destroy'])->name('logout'); //Deconnexion de l'app
 
 // Les routes des utilisateurs
 Route::middleware(['connexion'])->group(function () {

@@ -76,8 +76,9 @@ class authController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+        Auth::logout();
+        return to_route('page-accueil')->with('message', 'L\'utilisateur se déconnecter avec succès...');
     }
 }
