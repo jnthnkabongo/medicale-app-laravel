@@ -79,6 +79,6 @@ class authController extends Controller
     public function destroy()
     {
         Auth::logout();
-        return to_route('page-accueil')->with('message', 'L\'utilisateur se déconnecter avec succès...');
+        return to_route('page-accueil')->with('message', 'Déconnecter avec succès...');
     }
 }

@@ -131,7 +131,7 @@
                                     <li><a class="dropdown-item" href="{{ route('logout') }}">Se déconnecter</a></li>
                                 </ul>
                             @endauth
-				          
+
 			            </div><!--//app-user-dropdown-->
 		            </div><!--//app-utilities-->
 		        </div><!--//row-->
@@ -265,7 +265,7 @@
 	    </div><!--//app-sidepanel-->
     </header><!--//app-header-->
 
-    <div class="bg-success">
+    <div class="">
         @yield('content')
     </div>
 

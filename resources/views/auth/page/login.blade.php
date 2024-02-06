@@ -40,10 +40,10 @@
                     </form>
                     @if(Session::has('message'))
                     <script>
-                        swal("message", "{{ Session::get('message') }}", 'warning', {
+                        swal("message", "{{ Session::get('message') }}", 'success', {
                             showConfirmButton: false,
                             title: '',
-                            timer: 1500
+                            timer: 15000
                         });
                     </script>
                     @endif

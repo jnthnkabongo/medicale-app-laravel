@@ -9,7 +9,7 @@ class patients extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'code_patients',
+        'code_patient',
         'nom',
         'email',
         'contact',

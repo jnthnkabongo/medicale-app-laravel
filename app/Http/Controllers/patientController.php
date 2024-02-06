@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\savePatients;
+use App\Models\patients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class patientController extends Controller
@@ -10,11 +12,11 @@ class patientController extends Controller
      * Display a listing of the resource.
      */
 
-    public $code;
+
     public function index()
     {
-        $this->code = Str::random(5);
-        return view('users.pages.patients.index');
+        $code_patient = Str::random(7);
+        return view('users.pages.patients.index', compact('code_patient'));
     }
 
     /**
@@ -25,12 +27,23 @@ class patientController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    //creation du patient sur livewire
+    public function store(patients $Patients, savePatients $request)
     {
-        //
+
+        try {
+            $Patients->code_patient = $request->code_patient;
+            $Patients->nom = $request->nom;
+            $Patients->email = $request->email;
+            $Patients->contact = $request->contact;
+            $Patients->datenais = $request->datenais;
+            $Patients->adresse = $request->adresse;
+            $Patients->note = $request->note;
+            $Patients->save();
+            return back()->with('Message', 'La création du patient s\'effectuer avec succès...');
+        } catch (\Throwable $e) {
+            dd($e);
+        }
     }
 
     /**
