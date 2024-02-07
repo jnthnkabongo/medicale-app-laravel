@@ -4,100 +4,257 @@
         <div class="app-content pt-3 p-md-3 p-lg-4 mt-5">
             <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">Créer utilisateur</h1>
+                    <h1 class="app-page-title mb-0">Liste Patients</h1>
+                </div>
+                <div class="col-auto">
+                    <form class="table-search-form row gx-1 align-items-center">
+                        <div class="col-auto">
+                            <input type="text" id="search-orders" name="searchorders" class="form-control form-control-md search-orders " placeholder="Rechercher un patient">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn app-btn-primary">Rechercher</button>
+                        </div>
+                    </form>
+
                 </div>
                 <div class="col-auto">
                      <div class="page-utilities">
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto">
-                                <a href="" type="submit" class="btn app-btn-primary">Liste Utilisateur</a>
+                                <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Créer patient</a>
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 col-md-1"></div>
-                <div class="col-12 col-md-10 mt-3">
-                    <div class="app-card app-card-settings shadow-sm p-4 ">
-
-                        <div class="app-card-body">
-                            <form class="settings-form"  action="{{ route('creationpatient') }}" method="POST" >
-                                @csrf
-                                <div class="mb-1">
-                                    <label for="setting-input-1" class="form-label">Code patient    <span class="ms-2" data-container="body" data-bs-toggle="popover" data-trigger="hover" data-placement="top" data-content="This is a Bootstrap popover example. You can use popover to provide extra info."><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                      <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                      <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                                      <circle cx="8" cy="4.5" r="1"/>
-                                    </svg></span></label>
-                                    <input type="text" uppercase class="form-control uppercase" name="code_patient" value="{{ $code_patient }}" {{ $code_patient }} readonly >
-
-                                </div>
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">Nom patient</label>
-                                    <input type="text" class="form-control" id="nom" name="nom" wire:model='nom' value="{{ old('nom') }}">
-                                    @error("nom")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">E-mail utilisateur</label>
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                    @error("email")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">Contact patient</label>
-                                    <input type="number" class="form-control" name="contact" placeholder="+243 974133780" value="{{ old('contact') }}">
-                                    @error("contact")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">Date de naissance patient</label>
-                                    <input type="date" class="form-control" name="datenais" value="{{ old('datenais') }}">
-                                    @error("datenais")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">Adresse patient</label>
-                                    <input type="text" class="form-control" name="adresse" value="{{ old('adresse') }}">
-                                    @error("adresse")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">Note patient</label>
-                                    <input type="text" class="form-control" name="note" value="{{ old('note') }}">
-                                    @error("note")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <button type="submit" class="btn app-btn-primary mt-3 w-100" >Enregistrer </button>
-                            </form>
-                            @if(Session::has('message'))
-                                <script>
-                                    swal("message", "{{ Session::get('message') }}", 'success', {
-                                        showConfirmButton: false,
-                                        title: '',
-                                        timer: 1500
-                                        //button:true,
-                                        //button: "OK"
-                                    });
-                                </script>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-1"></div>
-            </div>
+           
         </div>
     </div>
+    <div class="app-wrapper">
 
+        <div class="app-content pt-3 p-md-3 p-lg-4">
+            <div class="container-xxl">
+
+                <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+                    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Tous </a>
+                    <a class="flex-sm-fill text-sm-center nav-link"  id="orders-paid-tab" data-bs-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Corporates</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab" href="#orders-pending" role="tab" aria-controls="orders-pending" aria-selected="false">Standars</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab" href="#orders-cancelled" role="tab" aria-controls="orders-cancelled" aria-selected="false">Supprimers</a>
+                </nav>
+
+                <div class="tab-content" id="orders-table-tab-content">
+                    <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+                        <div class="app-card app-card-orders-table shadow-sm mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive">
+                                    <table class="table app-table-hover mb-0 text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="cell">N</th>
+                                                <th class="cell">Code Patient</th>
+                                                <th class="cell">Nom</th>
+                                                <th class="cell">E-mail</th>
+                                                <th class="cell">Contact</th>
+                                                <th class="cell">Date de naissance</th>
+                                                <th class="cell">Adresse</th>
+                                                <th class="cell">Note</th>
+                                                <th class="cell">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ( $liste_patient as $patients)
+                                                <tr>
+                                                    <td class="cell">{{ $patients->id }}</td>
+                                                    <td class="cell"><span class="truncate">{{ Str::upper($patients->code_patient) }}</span></td>
+                                                    <td class="cell">{{ Str::upper($patients->nom) }}</td>
+                                                    <td class="cell">{{ Str::upper($patients->email) }}</td>
+                                                    <td class="cell">{{ Str::upper($patients->contact) }}</td>
+                                                    <td class="cell">{{ Str::upper($patients->datenais) }}</td>
+                                                    <td class="cell">{{ Str::upper($patients->adresse) }}</</td>
+                                                    <td class="cell"><span class="truncate">{{ Str::upper($patients->note) }}</span></td>
+                                                    <td class="cell">
+                                                        <a class="btn-lg app-btn-secondary" href="">&nbsp;<i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
+                                                        <a class="btn-sm app-btn-secondary" href=""><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td class="cell" colspan="12">
+                                                        <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div><!--//table-responsive-->
+
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                        <nav class="app-pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav><!--//app-pagination-->
+
+                    </div><!--//tab-pane-->
+
+                    <div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
+                        <div class="app-card app-card-orders-table mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive">
+
+                                    <table class="table mb-0 text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="cell">Order</th>
+                                                <th class="cell">Product</th>
+                                                <th class="cell">Customer</th>
+                                                <th class="cell">Date</th>
+                                                <th class="cell">Status</th>
+                                                <th class="cell">Total</th>
+                                                <th class="cell"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="cell">#15346</td>
+                                                <td class="cell"><span class="truncate">Lorem ipsum dolor sit amet eget volutpat erat</span></td>
+                                                <td class="cell">John Sanders</td>
+                                                <td class="cell"><span>17 Oct</span><span class="note">2:16 PM</span></td>
+                                                <td class="cell"><span class="badge bg-success">Paid</span></td>
+                                                <td class="cell">$259.35</td>
+                                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="cell">#15344</td>
+                                                <td class="cell"><span class="truncate">Pellentesque diam imperdiet</span></td>
+                                                <td class="cell">Teresa Holland</td>
+                                                <td class="cell"><span class="cell-data">16 Oct</span><span class="note">01:16 AM</span></td>
+                                                <td class="cell"><span class="badge bg-success">Paid</span></td>
+                                                <td class="cell">$123.00</td>
+                                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="cell">#15343</td>
+                                                <td class="cell"><span class="truncate">Vestibulum a accumsan lectus sed mollis ipsum</span></td>
+                                                <td class="cell">Jayden Massey</td>
+                                                <td class="cell"><span class="cell-data">15 Oct</span><span class="note">8:07 PM</span></td>
+                                                <td class="cell"><span class="badge bg-success">Paid</span></td>
+                                                <td class="cell">$199.00</td>
+                                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="cell">#15341</td>
+                                                <td class="cell"><span class="truncate">Morbi vulputate lacinia neque et sollicitudin</span></td>
+                                                <td class="cell">Raymond Atkins</td>
+                                                <td class="cell"><span class="cell-data">11 Oct</span><span class="note">11:18 AM</span></td>
+                                                <td class="cell"><span class="badge bg-success">Paid</span></td>
+                                                <td class="cell">$678.26</td>
+                                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div><!--//table-responsive-->
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                    </div><!--//tab-pane-->
+
+                    <div class="tab-pane fade" id="orders-pending" role="tabpanel" aria-labelledby="orders-pending-tab">
+                        <div class="app-card app-card-orders-table mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="cell">Order</th>
+                                                <th class="cell">Product</th>
+                                                <th class="cell">Customer</th>
+                                                <th class="cell">Date</th>
+                                                <th class="cell">Status</th>
+                                                <th class="cell">Total</th>
+                                                <th class="cell"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="cell">#15345</td>
+                                                <td class="cell"><span class="truncate">Consectetur adipiscing elit</span></td>
+                                                <td class="cell">Dylan Ambrose</td>
+                                                <td class="cell"><span class="cell-data">16 Oct</span><span class="note">03:16 AM</span></td>
+                                                <td class="cell"><span class="badge bg-warning">Pending</span></td>
+                                                <td class="cell">$96.20</td>
+                                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!--//table-responsive-->
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                    </div><!--//tab-pane-->
+                    <div class="tab-pane fade" id="orders-cancelled" role="tabpanel" aria-labelledby="orders-cancelled-tab">
+                        <div class="app-card app-card-orders-table mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="cell">Order</th>
+                                                <th class="cell">Product</th>
+                                                <th class="cell">Customer</th>
+                                                <th class="cell">Date</th>
+                                                <th class="cell">Status</th>
+                                                <th class="cell">Total</th>
+                                                <th class="cell"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td class="cell">#15342</td>
+                                                <td class="cell"><span class="truncate">Justo feugiat neque</span></td>
+                                                <td class="cell">Reina Brooks</td>
+                                                <td class="cell"><span class="cell-data">12 Oct</span><span class="note">04:23 PM</span></td>
+                                                <td class="cell"><span class="badge bg-danger">Cancelled</span></td>
+                                                <td class="cell">$59.00</td>
+                                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div><!--//table-responsive-->
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                    </div><!--//tab-pane-->
+                </div><!--//tab-content-->
+
+
+
+            </div><!--//container-fluid-->
+        </div><!--//app-content-->
+
+        <footer class="app-footer">
+            <div class="container text-center py-3">
+                 <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="app-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+
+            </div>
+        </footer><!--//app-footer-->
+
+    </div><!--//app-wrapper-->
 @endsection

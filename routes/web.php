@@ -28,7 +28,7 @@ Route::middleware(['connexion'])->group(function () {
     Route::get('index', [indexController::class, 'index'])->name('index');
     Route::prefix('patient')->group(function(){
         Route::get('/', [patientController::class, 'index'])->name('formulaire-patient');
-        //Route::get('index', [patientController::class, 'index'])->name('formulaire-patient');
+        Route::get('index', [patientController::class, 'create'])->name('formulaire-creation-patient');
         Route::post('creationpatient', [patientController::class, 'store'])->name('creationpatient');
     });
 });

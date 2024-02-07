@@ -15,8 +15,8 @@ class patientController extends Controller
 
     public function index()
     {
-        $code_patient = Str::random(7);
-        return view('users.pages.patients.index', compact('code_patient'));
+        $liste_patient = patients::all()->sortDesc();
+        return view('users.pages.patients.index', compact('liste_patient'));
     }
 
     /**
@@ -24,7 +24,9 @@ class patientController extends Controller
      */
     public function create()
     {
-        //
+
+        $code_patient = Str::random(7);
+        return view('users.pages.patients.create', compact('code_patient'));
     }
 
     //creation du patient sur livewire
