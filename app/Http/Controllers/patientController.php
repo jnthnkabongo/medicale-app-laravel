@@ -15,7 +15,7 @@ class patientController extends Controller
 
     public function index()
     {
-        $liste_patient = patients::all()->sortDesc();
+        $liste_patient = patients::orderByDesc('id')->paginate(3);
         return view('users.pages.patients.index', compact('liste_patient'));
     }
 

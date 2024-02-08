@@ -27,7 +27,7 @@
                     </div><!--//table-utilities-->
                 </div>
             </div>
-           
+
         </div>
     </div>
     <div class="app-wrapper">
@@ -64,7 +64,7 @@
                                         <tbody>
                                             @forelse ( $liste_patient as $patients)
                                                 <tr>
-                                                    <td class="cell">{{ $patients->id }}</td>
+                                                    <td class="cell">{{ ($liste_patient->perPage() * ($liste_patient->currentPage() - 1 ))+ $loop->iteration }}</td>
                                                     <td class="cell"><span class="truncate">{{ Str::upper($patients->code_patient) }}</span></td>
                                                     <td class="cell">{{ Str::upper($patients->nom) }}</td>
                                                     <td class="cell">{{ Str::upper($patients->email) }}</td>
@@ -84,9 +84,6 @@
                                                     </td>
                                                 </tr>
                                             @endforelse
-
-
-
                                         </tbody>
                                     </table>
                                 </div><!--//table-responsive-->
@@ -95,15 +92,7 @@
                         </div><!--//app-card-->
                         <nav class="app-pagination">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
+                                {{ $liste_patient->links() }}
                             </ul>
                         </nav><!--//app-pagination-->
 
