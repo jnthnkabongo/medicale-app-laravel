@@ -75,7 +75,7 @@ class patientController extends Controller
             $patients->adresse = $request->adresse;
             $patients->note = $request->note;
             $patients->update();
-            return to_route('liste-patient')->with('message','La modification s\'effectuer avec succès...');
+            return to_route('liste-patient')->with('Message', 'La modification s\'effectuer avec succès...');
         } catch (\Throwable $e) {
             dd($e);
         }
@@ -92,8 +92,13 @@ class patientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(patients $patients)
     {
-        //
+        try {
+            $patients->delete();
+            return back()->with('message', 'La suppression a reussi...');
+        } catch (\Throwable $e) {
+            dd($e);
+        }
     }
 }

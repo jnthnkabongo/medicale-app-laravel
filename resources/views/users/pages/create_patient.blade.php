@@ -1,6 +1,3 @@
-<link href="{{ asset('../../../../public/assets/fontawesome-free/css/all.css') }}" rel="stylesheet">
-<link id="theme-style" rel="stylesheet" href="{{ asset('assets/css/portal.css') }}">
-
 @extends('users.layouts.entete-users')
 @section('content')
     <div class="app-wrapper">
@@ -86,12 +83,9 @@
                             </form>
                             @if(Session::has('message'))
                                 <script>
-                                    swal("message", "{{ Session::get('message') }}", 'success', {
-                                        showConfirmButton: false,
-                                        title: '',
-                                        timer: 1500
-                                        //button:true,
-                                        //button: "OK"
+                                    swal("Message", "{{ Session::get('message') }}", 'success', {
+                                        button:true,
+                                        button: "OK"
                                     });
                                 </script>
                             @endif

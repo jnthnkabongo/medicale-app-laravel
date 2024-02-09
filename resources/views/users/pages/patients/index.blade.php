@@ -74,7 +74,7 @@
                                                     <td class="cell"><span class="truncate">{{ Str::upper($patients->note) }}</span></td>
                                                     <td class="cell">
                                                         <a class="btn-sm app-btn-secondary" href="{{ route('modifier-patient', $patients->id) }}"><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
-                                                        <a class="btn-sm app-btn-secondary" href=""><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
+                                                        <a class="btn-sm app-btn-secondary" href="{{ route('suppression-patient', $patients->id)}}"><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
                                                     </td>
                                                 </tr>
                                             @empty
@@ -95,7 +95,14 @@
                                 {{ $liste_patient->links() }}
                             </ul>
                         </nav><!--//app-pagination-->
-
+                        @if(Session::has('message'))
+                            <script>
+                                swal("Message", "{{ Session::get('message') }}", 'danger', {
+                                    button:true,
+                                    button: "OK"
+                                });
+                            </script>
+                        @endif
                     </div><!--//tab-pane-->
 
                     <div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">

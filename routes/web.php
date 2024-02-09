@@ -27,11 +27,12 @@ Route::get('logout', [authController::class, 'destroy'])->name('logout'); //Deco
 Route::middleware(['connexion'])->group(function () {
     Route::get('index', [indexController::class, 'index'])->name('index');
     Route::prefix('patient')->group(function(){
-        Route::get('/', [patientController::class, 'index'])->name('liste-patient');
-        Route::get('index', [patientController::class, 'create'])->name('formulaire-creation-patient');
-        Route::post('creationpatient', [patientController::class, 'store'])->name('creationpatient');
-        Route::get('edit/{patients}', [patientController::class, 'show'])->name('modifier-patient');
-        Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');
+        Route::get('/', [patientController::class, 'index'])->name('liste-patient'); //Prefixe de tous les routes patient
+        Route::get('index', [patientController::class, 'create'])->name('formulaire-creation-patient'); // affichage de la page de tous les patients
+        Route::post('creationpatient', [patientController::class, 'store'])->name('creationpatient');  //  soumission du formulaire de creation du patient
+        Route::get('edit/{patients}', [patientController::class, 'show'])->name('modifier-patient');  // affichage du formulaire de modification du patient
+        Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');  // soumission du formulaire de modification du patient
+        Route::get('suppresion/{patients}', [patientController::class, 'destroy'])->name('suppression-patient');  //suppression du patient
     });
 });
 
