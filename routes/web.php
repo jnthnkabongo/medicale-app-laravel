@@ -27,9 +27,11 @@ Route::get('logout', [authController::class, 'destroy'])->name('logout'); //Deco
 Route::middleware(['connexion'])->group(function () {
     Route::get('index', [indexController::class, 'index'])->name('index');
     Route::prefix('patient')->group(function(){
-        Route::get('/', [patientController::class, 'index'])->name('formulaire-patient');
+        Route::get('/', [patientController::class, 'index'])->name('liste-patient');
         Route::get('index', [patientController::class, 'create'])->name('formulaire-creation-patient');
         Route::post('creationpatient', [patientController::class, 'store'])->name('creationpatient');
+        Route::get('edit/{patients}', [patientController::class, 'show'])->name('modifier-patient');
+        Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');
     });
 });
 

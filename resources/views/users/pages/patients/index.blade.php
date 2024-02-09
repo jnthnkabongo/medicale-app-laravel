@@ -73,7 +73,7 @@
                                                     <td class="cell">{{ Str::upper($patients->adresse) }}</</td>
                                                     <td class="cell"><span class="truncate">{{ Str::upper($patients->note) }}</span></td>
                                                     <td class="cell">
-                                                        <a class="btn-lg app-btn-secondary" href="">&nbsp;<i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
+                                                        <a class="btn-sm app-btn-secondary" href="{{ route('modifier-patient', $patients->id) }}"><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
                                                         <a class="btn-sm app-btn-secondary" href=""><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
                                                     </td>
                                                 </tr>
@@ -240,7 +240,7 @@
         <footer class="app-footer">
             <div class="container text-center py-3">
                  <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="app-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+            <small class="copyright">Designer avec <span class="sr-only"> </span> coeur<i class="fas fa-heart" style="color: #fb866a;"></i> par Bestech Consult</small>
 
             </div>
         </footer><!--//app-footer-->

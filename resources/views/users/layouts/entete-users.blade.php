@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+    <link href="{{ asset('fontawesome-free/css/all.css') }}" rel="stylesheet">
     <link id="theme-style" rel="stylesheet" href="{{ asset('assets/css/portal.css') }}">
     @livewireStyles
     <title>Gestion Médicale</title>
@@ -195,7 +197,7 @@
 						        <ul class="submenu-list list-unstyled">
 							        <li class="submenu-item"><a class="submenu-link" href="notifications.html">Corporate</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="account.html">Standars</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="{{ route('formulaire-patient') }}">Autres</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{ route('liste-patient') }}">Autres</a></li>
 
 						        </ul>
 					        </div>

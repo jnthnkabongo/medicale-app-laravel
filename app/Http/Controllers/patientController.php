@@ -22,6 +22,8 @@ class patientController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+     //Formulaire de creation des patients
     public function create()
     {
 
@@ -29,7 +31,7 @@ class patientController extends Controller
         return view('users.pages.patients.create', compact('code_patient'));
     }
 
-    //creation du patient sur livewire
+    //Sounission du formulaire de creation des patients
     public function store(patients $Patients, savePatients $request)
     {
 
@@ -51,17 +53,32 @@ class patientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+
+     //Affichage du formulaire de modification des patients
+    public function show(patients $patients)
     {
-        //
+        //On prend la variable d'affichage de la liste au'on utilise pour recuperer l'occurence dont on a besoin [$patients]
+        return view('users.pages.create_patient', compact('patients'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    //Soumission du formulaire de modification du patient
+    public function edit(Request $request, patients $patients)
     {
-        //
+        try {
+            $patients->nom = $request->nom;
+            $patients->email = $request->email;
+            $patients->contact = $request->contact;
+            $patients->datenais = $request->datenais;
+            $patients->adresse = $request->adresse;
+            $patients->note = $request->note;
+            $patients->update();
+            return to_route('liste-patient')->with('message','La modification s\'effectuer avec succès...');
+        } catch (\Throwable $e) {
+            dd($e);
+        }
     }
 
     /**

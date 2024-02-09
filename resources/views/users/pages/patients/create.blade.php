@@ -10,7 +10,7 @@
                      <div class="page-utilities">
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto">
-                                <a href="{{ route('formulaire-patient') }}" type="submit" class="btn app-btn-primary">Liste Patients</a>
+                                <a href="{{ route('liste-patient') }}" type="submit" class="btn app-btn-primary">Liste Patients</a>
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->
