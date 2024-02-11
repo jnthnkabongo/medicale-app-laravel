@@ -11,11 +11,9 @@ class patientController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-    public $search;
     public function index()
     {
-        $liste_patient = patients::orderByDesc('id')->paginate(3);
+        $liste_patient = patients::orderByDesc('id')->paginate(10);
         return view('users.pages.patients.index', compact('liste_patient'));
     }
 
@@ -23,7 +21,7 @@ class patientController extends Controller
      * Show the form for creating a new resource.
      */
 
-     //Formulaire de creation des patients
+    //Formulaire de creation des patients
     public function create()
     {
 
@@ -88,7 +86,9 @@ class patientController extends Controller
     //La fonction de recherche d'un patient
     public function search()
     {
-        $rechercer_patint = patients::all();
+        $rechercher_patients = $_GET['rechercher_patients'];
+        $liste_patient = patients::where('nom','LIKE','%'.$rechercher_patients.'%')->paginate(10);
+        return view('users.pages.patients.index', compact('liste_patient'));
     }
 
     /**

@@ -7,9 +7,13 @@
                     <h1 class="app-page-title mb-0">Liste Patients</h1>
                 </div>
                 <div class="col-auto">
-                    <form class="table-search-form row gx-1 align-items-center">
+                    <form action="{{ route('rechercher-patient') }}" method="GET" class="table-search-form row gx-1 align-items-center">
+                        @csrf
                         <div class="col-auto">
-                            <input type="text" id="search-orders" name="searchorders" class="form-control form-control-md search-orders " placeholder="Rechercher un patient">
+                            <a type="submit" href="{{ route('liste-patient') }}" class="btn app-btn-primary">Actualiser</a>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher un patient">
                         </div>
                         <div class="col-auto">
                             <button type="submit" class="btn app-btn-primary">Rechercher</button>

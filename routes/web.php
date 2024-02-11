@@ -34,6 +34,7 @@ Route::middleware(['connexion'])->group(function () {
         Route::get('edit/{patients}', [patientController::class, 'show'])->name('modifier-patient');  // affichage du formulaire de modification du patient
         Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');  // soumission du formulaire de modification du patient
         Route::get('suppresion/{patients}', [patientController::class, 'destroy'])->name('suppression-patient');  //suppression du patient
+        Route::get('rechercher_patient', [patientController::class, 'search'])->name('rechercher-patient');  //Rechercher un patient
     });
     //Les routes de la partie rendez-vous j'ai sorti ce dernier du group prefix sous
     //pretexte que les styles ne sont pas pris en charge...
@@ -43,7 +44,7 @@ Route::middleware(['connexion'])->group(function () {
 
     //Les routes de la partie parametres j'ai sorti ce dernier du group prefix sous
     //pretexte que les styles ne sont pas pris en charge...
-    
+
 
 });
 
