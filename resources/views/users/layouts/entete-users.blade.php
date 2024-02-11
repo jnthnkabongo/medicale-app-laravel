@@ -206,7 +206,7 @@
 					    </li><!--//nav-item-->
 					    <li class="nav-item has-submenu">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
+					        <a class="nav-link submenu-toggle" href="{{ route('liste-rendez-vous') }}" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-columns-gap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -222,7 +222,7 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="login.html">Login</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{ route('liste-rendez-vous') }}">Login</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="signup.html">Signup</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="reset-password.html">Reset password</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="404.html">404 page</a></li>

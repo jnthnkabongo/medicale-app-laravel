@@ -12,7 +12,7 @@ class patientController extends Controller
      * Display a listing of the resource.
      */
 
-
+    public $search;
     public function index()
     {
         $liste_patient = patients::orderByDesc('id')->paginate(3);
@@ -84,9 +84,11 @@ class patientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+    //La fonction de recherche d'un patient
+    public function search()
     {
-        //
+        $rechercer_patint = patients::all();
     }
 
     /**

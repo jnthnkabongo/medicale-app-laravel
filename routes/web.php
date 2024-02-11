@@ -5,6 +5,7 @@ use App\Http\Controllers\dashController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\patientController;
+use App\Http\Controllers\rendez_vousController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,16 @@ Route::middleware(['connexion'])->group(function () {
         Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');  // soumission du formulaire de modification du patient
         Route::get('suppresion/{patients}', [patientController::class, 'destroy'])->name('suppression-patient');  //suppression du patient
     });
+    //Les routes de la partie rendez-vous j'ai sorti ce dernier du group prefix sous
+    //pretexte que les styles ne sont pas pris en charge...
+    Route::get('rendez-vous', [rendez_vousController::class, 'index'])->name('liste-rendez-vous');
+    Route::get('rendez-vous-create', [rendez_vousController::class, 'store'])->name('afficher-rendez-vous');
+    Route::get('rendez-vous-edit', [rendez_vousController::class, 'show'])->name('afficher-modifier-rendez-vous');
+
+    //Les routes de la partie parametres j'ai sorti ce dernier du group prefix sous
+    //pretexte que les styles ne sont pas pris en charge...
+    
+
 });
 
 // Les routes des administrateurs
