@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\rechercher_patient;
 use App\Http\Requests\savePatients;
 use App\Models\patients;
 use Illuminate\Http\Request;
@@ -84,11 +85,15 @@ class patientController extends Controller
      */
 
     //La fonction de recherche d'un patient
-    public function search()
+    public function search(patients $Patients, rechercher_patient $request)
     {
-        $rechercher_patients = $_GET['rechercher_patients'];
-        $liste_patient = patients::where('nom','LIKE','%'.$rechercher_patients.'%')->paginate(10);
-        return view('users.pages.patients.index', compact('liste_patient'));
+        try {
+            $rechercher_patients = $_GET['rechercher_patients'];
+            $liste_patient = patients::where('nom','LIKE','%'.$rechercher_patients.'%')->paginate(10);
+            return view('users.pages.patients.index', compact('liste_patient'));
+        } catch (\Throwable $e) {
+             dd($e);
+        }
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\patients;
 class homeController extends Controller
 {
     /**
@@ -16,7 +16,10 @@ class homeController extends Controller
         if ($roles == '1') {
             return view('admin.pages-admin.dashboard');
         }if ($roles == '2') {
-            return view('users.pages.index');
+
+            $liste_patient = patients::orderByDesc('id')->paginate(10);
+            return view('users.pages.index', compact('liste_patient'));
+
         }else {
             return view('auth.page.login');
         }

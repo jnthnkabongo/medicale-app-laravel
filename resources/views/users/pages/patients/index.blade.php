@@ -14,6 +14,9 @@
                         </div>
                         <div class="col-auto">
                             <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher un patient">
+                            @error('rechercher_patients')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-auto">
                             <button type="submit" class="btn app-btn-primary">Rechercher</button>

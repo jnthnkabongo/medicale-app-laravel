@@ -21,7 +21,7 @@
                     <div class="page-utilities">
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto">
-                                <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Nouveau Rendez-vous</a>
+                                <a href="{{ route('afficher-rendez-vous') }}" type="submit" class="btn app-btn-primary">Nouveau Rendez-vous</a>
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->

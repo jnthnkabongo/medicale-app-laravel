@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\rendez_vous;
+use App\Models\specialites;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class rendez_vousController extends Controller
 {
@@ -16,6 +19,10 @@ class rendez_vousController extends Controller
         return view('users.pages.rendez-vous.index-rdv', compact('liste_rendezvous'));
     }
 
+    // La recherche des rendez-vous
+    public function search (){
+
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -29,12 +36,16 @@ class rendez_vousController extends Controller
      */
     public function store()
     {
-        return view('users.pages.rendez-vous.creation-rdv');
+
+        $liste_specialites = specialites::all();
+        $liste_docteurs = DB::table('users')->where('roles_id', '=', '2')->get();
+        return view('users.pages.rendez-vous.creation-rdv', compact('liste_specialites', 'liste_docteurs'));
     }
 
     /**
      * Display the specified resource.
      */
+    //Afficher le formulaire avant creation d'un nouveau rendez-vous
     public function show()
     {
         return view('users.pages.rendez-vous.afficher-rdv');

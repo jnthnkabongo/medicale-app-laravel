@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\patients;
 class indexController extends Controller
 {
     /**
@@ -11,7 +11,9 @@ class indexController extends Controller
      */
     public function index()
     {
-        return view('users.pages.index');
+
+        $liste_patient = patients::orderByDesc('id')->paginate(10);
+        return view('users.pages.index', compact('liste_patient'));
     }
 
     /**
