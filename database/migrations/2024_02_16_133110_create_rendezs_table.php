@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rendez_vous', function (Blueprint $table) {
+        Schema::create('rendezs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained('patients');
-            $table->foreignId('id')->constrained('users');
-            $table->enum('status', ['1','2','3'])->comment('1: accepté' | '2: refusé' | '3: en attente');
-            $table->date('date');
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rendez-vous');
+        Schema::dropIfExists('rendezs');
     }
 };

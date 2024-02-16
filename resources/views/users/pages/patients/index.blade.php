@@ -62,8 +62,6 @@
                                                 <th class="cell">Nom</th>
                                                 <th class="cell">E-mail</th>
                                                 <th class="cell">Contact</th>
-                                                <th class="cell">Date de naissance</th>
-                                                <th class="cell">Adresse</th>
                                                 <th class="cell">Note</th>
                                                 <th class="cell">Action</th>
                                             </tr>
@@ -76,12 +74,12 @@
                                                     <td class="cell">{{ Str::upper($patients->nom) }}</td>
                                                     <td class="cell">{{ Str::upper($patients->email) }}</td>
                                                     <td class="cell">{{ Str::upper($patients->contact) }}</td>
-                                                    <td class="cell">{{ Str::upper($patients->datenais) }}</td>
-                                                    <td class="cell">{{ Str::upper($patients->adresse) }}</</td>
                                                     <td class="cell"><span class="truncate">{{ Str::upper($patients->note) }}</span></td>
                                                     <td class="cell">
-                                                        <a class="btn-sm app-btn-secondary" href="{{ route('modifier-patient', $patients->id) }}"><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
-                                                        <a class="btn-sm app-btn-secondary" href="{{ route('suppression-patient', $patients->id)}}"><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
+                                                        <a class="btn btn-sm" href="{{ route('modifier-patient', $patients->id) }}"><i class="fa-solid fa-edit fa-1x"></i></a>
+                                                        <a class="btn btn-sm" href="{{ route('visualiser-patient', $patients->id)}}"><i class="fa-solid fa-eye fa-1x"></i></a>
+                                                        <a class="btn btn-sm" href="{{ route('agenda-patient', $patients->id)}}"><i class="fa-solid fa-calendar fa-1x"></i></a>
+                                                        <a class="btn btn-sm" href="{{ route('suppression-patient', $patients->id)}}"><i class="fa-solid fa-trash fa-1x"></i></a>
                                                     </td>
                                                 </tr>
                                             @empty

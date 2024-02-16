@@ -1,8 +1,6 @@
 @extends('users.layouts.entete-users')
 @section('content')
-    <div>
 
-    </div>
     <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4 mt-5">
             <div class="row g-3 mb-4 align-items-center justify-content-between">
@@ -27,20 +25,16 @@
                         <div class="app-card-body">
                             <form class="settings-form"  action="" method="GET" >
                                 @csrf
-                                <div class="row g-2">
-                                    <div class="col-md-9">
-                                         <label for="setting-input-2" class="form-label">Code Patient </label>
-                                        <input type="password" class="form-control" id="inputPassword2" >
-                                    </div>
-                                    <div class="col-md-3 pt-2">
-                                        <label for="setting-input-2" class="form-label"> </label>
-                                        <button type="submit" class="btn app-btn-primary mb-3 w-100">Trouver Patient</button>
-                                    </div>
+                                <div class="mb-1">
+                                    <label for="setting-input-2" class="form-label"> Code Patient </label>
+                                        <input type="text" class="form-control" name="patient" value="{{ $patients->nom }}"  readonly>
+                                    @error("patient")
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-
                                 <div class="mb-1">
                                     <label for="setting-input-2" class="form-label">Patient </label>
-                                    <input type="text" class="form-control" name="patient" value="">
+                                        <input type="text" class="form-control" name="patient" value="" readonly>
                                     @error("patient")
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -64,15 +58,6 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-
-                                <div class="mb-1">
-                                    <label for="setting-input-2" class="form-label">Docteur</label>
-                                    <input type="text" class="form-control" name="docteur" value="">
-                                    @error("docteur")
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
                                 <div class="mb-1">
                                     <label for="setting-input-2" class="form-label">Choisissez Docteur</label>
                                     <select class="form-control" name="docteur" id="" >
@@ -85,7 +70,6 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                                 <button type="submit" class="btn app-btn-primary mt-3 w-100" >Enregistrer </button>
                             </form>
                             @if(Session::has('message'))

@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\rechercher_patient;
+use App\Http\Requests\saveAgenda;
 use App\Http\Requests\savePatients;
 use App\Models\patients;
+use App\Models\rendez;
+use App\Models\rendez_vous;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use App\Models\specialites;
 class patientController extends Controller
 {
     /**
@@ -94,6 +99,33 @@ class patientController extends Controller
         } catch (\Throwable $e) {
              dd($e);
         }
+    }
+    //Formulaire d'affichage de creation de rendez-vous
+    public function agenda(patients $patients){
+        $liste_specialites = specialites::all();
+        $liste_docteurs = DB::table('users')->where('roles_id', '=', '2')->get();
+        return view('users.pages.patients.agenda', compact('patients','liste_specialites','liste_docteurs'));
+    }
+
+    public function creation_agenda(rendez $Rendez, saveAgenda $request){
+        try {
+            $Rendez->code_patient = $request->code_patient;
+            $Rendez->patient_id = $request->patient_id;
+            $Rendez->date_rdv = $request->date_rdv;
+            $Rendez->spec_id = $request->spec_id;
+            $Rendez->users_id = $request->users_id;
+            $Rendez->status = 2;
+            
+            $Rendez->save();
+            return back()->with('Message', 'La creation du rendez-vous a reussi avec succès...');
+        } catch (\Throwable $e) {
+            dd($e);
+        }
+    }
+
+    //Formulaire de visualisation du patient tout justement 
+    public function visualiser(){
+        return view('users.pages.patients.visualiser');
     }
 
     /**

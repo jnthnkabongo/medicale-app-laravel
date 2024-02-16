@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\rendez_vous;
+use App\Models\patients;
+use App\Models\rendez;
 use App\Models\specialites;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class rendez_vousController extends Controller
      */
     public function index()
     {
-        $liste_rendezvous = rendez_vous::orderByDesc('id')->paginate('5');
+        $liste_rendezvous = rendez::orderByDesc('id')->paginate('5');
         return view('users.pages.rendez-vous.index-rdv', compact('liste_rendezvous'));
     }
 
@@ -36,12 +37,19 @@ class rendez_vousController extends Controller
      */
     public function store()
     {
-
+        $code_patient_afficher = patients::all();
         $liste_specialites = specialites::all();
         $liste_docteurs = DB::table('users')->where('roles_id', '=', '2')->get();
         return view('users.pages.rendez-vous.creation-rdv', compact('liste_specialites', 'liste_docteurs'));
     }
 
+      //Sur le formulaire de creation du rendez-vous du patient
+     //on recherche d'abord le code de ce dernier
+     //public function view_code(){
+        //$rechercher_code_patient = $_GET['code_patient'];
+        //$code_patient_afficher = patients::where('code_patient','LIKE','%'.$rechercher_code_patient.'%');
+        //return view('users.pages.rendez-vous.creation-rdv', compact('code_patient_afficher'));
+     //}
     /**
      * Display the specified resource.
      */

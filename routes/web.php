@@ -35,6 +35,9 @@ Route::middleware(['connexion'])->group(function () {
         Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');  // soumission du formulaire de modification du patient
         Route::get('suppresion/{patients}', [patientController::class, 'destroy'])->name('suppression-patient');  //suppression du patient
         Route::get('rechercher_patient', [patientController::class, 'search'])->name('rechercher-patient');  //Rechercher un patient
+        Route::get('visualiser_patient',[patientController::class, 'visualiser'])->name('visualiser-patient'); //Visauliser les informations du patient
+        Route::get('rendez_vous_patient/{patients}',[patientController::class, 'agenda'])->name('agenda-patient'); //Afficher le formulaire du patient
+        Route::post('creer_agenda', [patientController::class, 'creation_agenda'])->name('creation_agenda'); //Soumission du formulaire de creation de rendez-vous
     });
     //Les routes de la partie rendez-vous j'ai sorti ce dernier du group prefix sous
     //pretexte que les styles ne sont pas pris en charge...
