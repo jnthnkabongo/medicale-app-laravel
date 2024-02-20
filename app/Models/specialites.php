@@ -11,6 +11,6 @@ class specialites extends Model
     protected $fillable =
     [
         'id_spec',
-        'intitule_spec',
+        'intitule_spec'
     ];
 }

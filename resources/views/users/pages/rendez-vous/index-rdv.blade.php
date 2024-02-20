@@ -52,29 +52,27 @@
                                             <tr>
                                                 <th class="cell">N</th>
                                                 <th class="cell">Code Patient</th>
-                                                <th class="cell">Nom</th>
-                                                <th class="cell">E-mail</th>
-                                                <th class="cell">Contact</th>
+                                                <th class="cell">Nom Patient</th>
+                                                <th class="cell">Nom Docteur</th>
+                                                <th class="cell">Specialité Médecin</th>
                                                 <th class="cell">Date de naissance</th>
-                                                <th class="cell">Adresse</th>
-                                                <th class="cell">Note</th>
+                                                <th class="cell">Statut</th>
                                                 <th class="cell">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @forelse ( $liste_rendezvous as $rendezvous)
                                                 <tr>
-                                                    <td class="cell">{{ ($liste_patient->perPage() * ($liste_patient->currentPage() - 1 ))+ $loop->iteration }}</td>
-                                                    <td class="cell"><span class="truncate">{{ Str::upper($patients->code_patient) }}</span></td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->nom) }}</td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->email) }}</td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->contact) }}</td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->datenais) }}</td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->adresse) }}</</td>
-                                                    <td class="cell"><span class="truncate">{{ Str::upper($patients->note) }}</span></td>
+                                                    <td class="cell">{{ ($liste_rendezvous->perPage() * ($liste_rendezvous->currentPage() - 1 ))+ $loop->iteration }}</td>
+                                                    <td class="cell"><span class="truncate">{{ Str::upper($rendezvous->code_patient) }}</span></td>
+                                                    <td class="cell">{{ Str::upper($rendezvous->patient->nom) }}</td>
+                                                    <td class="cell">{{ Str::upper($rendezvous->utilisateur?->name) }}</td>
+                                                    <td class="cell">{{ Str::upper($rendezvous->specialite?->intitule_spec) }}</td>
+                                                    <td class="cell">{{ Str::upper($rendezvous->date_rdv) }}</td>
+                                                    <td class="cell">{{ Str::upper($rendezvous->status) }}</td>
                                                     <td class="cell">
-                                                        <a class="btn-sm app-btn-secondary" href="{{ route('modifier-patient', $patients->id) }}"><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
-                                                        <a class="btn-sm app-btn-secondary" href="{{ route('suppression-patient', $patients->id)}}"><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
+                                                        <a class="btn-sm app-btn-secondary" href=""><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
+                                                        <a class="btn-sm app-btn-secondary" href=""><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
                                                     </td>
                                                 </tr>
                                             @empty

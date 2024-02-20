@@ -115,7 +115,7 @@ class patientController extends Controller
             $Rendez->spec_id = $request->spec_id;
             $Rendez->users_id = $request->users_id;
             $Rendez->status = 2;
-            
+
             $Rendez->save();
             return back()->with('Message', 'La creation du rendez-vous a reussi avec succès...');
         } catch (\Throwable $e) {
@@ -123,7 +123,7 @@ class patientController extends Controller
         }
     }
 
-    //Formulaire de visualisation du patient tout justement 
+    //Formulaire de visualisation du patient tout justement
     public function visualiser(){
         return view('users.pages.patients.visualiser');
     }

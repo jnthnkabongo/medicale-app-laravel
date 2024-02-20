@@ -17,10 +17,10 @@ class authController extends Controller
     public function index()
     {
         /*User::create([
-            'name' => 'gloria',
-            'email' => 'gloria@gmail.com',
+            'name' => 'camille',
+            'email' => 'camille@gmail.com',
             'password' => Hash::make('12345'),
-            'roles_id' => '2'
+            'roles_id' => '1'
         ]);*/
         return view('auth.page.login');
     }

@@ -17,4 +17,9 @@ class patients extends Model
         'adresse',
         'note'
     ];
+
+    public function rendez()
+    {
+        return $this->hasMany(rendez_vous::class);
+    }
 }
