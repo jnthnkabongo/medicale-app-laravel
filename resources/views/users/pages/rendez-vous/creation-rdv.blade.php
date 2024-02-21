@@ -27,7 +27,7 @@
                                 @csrf
                                 <div class="mb-1">
                                     <label for="setting-input-2" class="form-label"> Code Patient </label>
-                                        <input type="text" class="form-control" name="patient" value="{{ $patients->nom }}"  readonly>
+                                        <input type="text" class="form-control" name="patient" value=""  readonly>
                                     @error("patient")
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

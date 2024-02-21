@@ -4,13 +4,13 @@
     <div class="app-content pt-3 p-md-3 p-lg-4 mt-5">
         <div class="row g-3 mb-4 align-items-center justify-content-between">
             <div class="col-auto">
-                <h1 class="app-page-title mb-0">Creation Rendez-vous</h1>
+                <h1 class="app-page-title mb-0">Creation Rendez-vouss</h1>
             </div>
             <div class="col-auto">
                  <div class="page-utilities">
                     <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                         <div class="col-auto">
-                            <a href="{{ route('liste-patient') }}" type="submit" class="btn app-btn-primary">Liste rendez-vous</a>
+                            <a href="{{ route('liste-patient') }}" type="submit" class="btn app-btn-primary">Liste Patients</a>
                         </div>
                     </div><!--//row-->
                 </div><!--//table-utilities-->
@@ -32,7 +32,7 @@
                                 @enderror
                             </div>
                             <div class="mb-1">
-                                    <input type="text" class="form-control" name="patient_id" value="{{ Str::upper($patients->id) }}" >
+                                    <input type="text" class="form-control" name="patient_id" value="{{ Str::upper($patients->id) }}" hidden>
                                 @error("patient_id")
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror

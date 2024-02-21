@@ -18,8 +18,25 @@ class patients extends Model
         'note'
     ];
 
-    public function rendez()
+     /**
+     * Get the user that owns the employers
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function plainte()
     {
-        return $this->hasMany(rendez_vous::class);
+        return $this->belongsTo(plaintes::class);
     }
+
+      /**
+     * Get the user that owns the employers
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function roles()
+    {
+        return $this->belongsTo(roles::class);
+    }
+
+
 }

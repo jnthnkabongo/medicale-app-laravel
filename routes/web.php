@@ -27,18 +27,18 @@ Route::get('logout', [authController::class, 'destroy'])->name('logout'); //Deco
 // Les routes des utilisateurs
 Route::middleware(['connexion'])->group(function () {
     Route::get('index', [indexController::class, 'index'])->name('index');
-    Route::prefix('patient')->group(function(){
-        Route::get('/', [patientController::class, 'index'])->name('liste-patient'); //Prefixe de tous les routes patient
-        Route::get('index', [patientController::class, 'create'])->name('formulaire-creation-patient'); // affichage de la page de tous les patients
-        Route::post('creationpatient', [patientController::class, 'store'])->name('creationpatient');  //  soumission du formulaire de creation du patient
-        Route::get('edit/{patients}', [patientController::class, 'show'])->name('modifier-patient');  // affichage du formulaire de modification du patient
-        Route::get('edits/{patients}', [patientController::class, 'edit'])->name('modifier-patients');  // soumission du formulaire de modification du patient
-        Route::get('suppresion/{patients}', [patientController::class, 'destroy'])->name('suppression-patient');  //suppression du patient
-        Route::get('rechercher_patient', [patientController::class, 'search'])->name('rechercher-patient');  //Rechercher un patient
-        Route::get('visualiser_patient',[patientController::class, 'visualiser'])->name('visualiser-patient'); //Visauliser les informations du patient
-        Route::get('rendez_vous_patient/{patients}',[patientController::class, 'agenda'])->name('agenda-patient'); //Afficher le formulaire du patient
-        Route::post('creer_agenda', [patientController::class, 'creation_agenda'])->name('creation_agenda'); //Soumission du formulaire de creation de rendez-vous
-    });
+
+    Route::get('/patients', [patientController::class, 'index'])->name('liste-patient'); //Prefixe de tous les routes patient
+    Route::get('creation-patient', [patientController::class, 'create'])->name('formulaire-creation-patient'); // affichage de la page de tous les patients
+    Route::post('patient-creation-soumission', [patientController::class, 'store'])->name('creationpatient');  //  soumission du formulaire de creation du patient
+    Route::get('patient-modification-{patients}', [patientController::class, 'show'])->name('modifier-patient');  // affichage du formulaire de modification du patient
+    Route::get('patient-soumission-edits-{patients}', [patientController::class, 'edit'])->name('modifier-patients');  // soumission du formulaire de modification du patient
+    Route::get('suppresion/{patients}', [patientController::class, 'destroy'])->name('suppression-patient');  //suppression du patient
+    Route::get('rechercher_patient', [patientController::class, 'search'])->name('rechercher-patient');  //Rechercher un patient
+    Route::get('infos-patient-{patients}',[patientController::class, 'visualiser'])->name('visualiser-patient'); //Visauliser les informations du patient
+    Route::get('patient-rendez-vous-patient-{patients}',[patientController::class, 'agenda'])->name('agenda-patient'); //Afficher le formulaire du patient
+    Route::post('creer-agenda', [patientController::class, 'creation_agenda'])->name('creation_agenda'); //Soumission du formulaire de creation de rendez-vous
+
     //Les routes de la partie rendez-vous j'ai sorti ce dernier du group prefix sous
     //pretexte que les styles ne sont pas pris en charge...
     Route::get('rendez-vous', [rendez_vousController::class, 'index'])->name('liste-rendez-vous');

@@ -32,7 +32,7 @@ class patientController extends Controller
     {
 
         $code_patient = Str::random(7);
-        return view('users.pages.patients.create', compact('code_patient'));
+        return view('users.pages.patients.creation-patient', compact('code_patient'));
     }
 
     //Sounission du formulaire de creation des patients
@@ -62,7 +62,7 @@ class patientController extends Controller
     public function show(patients $patients)
     {
         //On prend la variable d'affichage de la liste au'on utilise pour recuperer l'occurence dont on a besoin [$patients]
-        return view('users.pages.create_patient', compact('patients'));
+        return view('users.pages.patients.modifier-patient', compact('patients'));
     }
 
     /**
@@ -104,7 +104,7 @@ class patientController extends Controller
     public function agenda(patients $patients){
         $liste_specialites = specialites::all();
         $liste_docteurs = DB::table('users')->where('roles_id', '=', '2')->get();
-        return view('users.pages.patients.agenda', compact('patients','liste_specialites','liste_docteurs'));
+        return view('users.pages.patients.creation-agenda', compact('patients','liste_specialites','liste_docteurs'));
     }
 
     public function creation_agenda(rendez $Rendez, saveAgenda $request){
@@ -114,7 +114,7 @@ class patientController extends Controller
             $Rendez->date_rdv = $request->date_rdv;
             $Rendez->spec_id = $request->spec_id;
             $Rendez->users_id = $request->users_id;
-            $Rendez->status = 2;
+            $Rendez->status = 3;
 
             $Rendez->save();
             return back()->with('Message', 'La creation du rendez-vous a reussi avec succès...');
@@ -125,7 +125,7 @@ class patientController extends Controller
 
     //Formulaire de visualisation du patient tout justement
     public function visualiser(){
-        return view('users.pages.patients.visualiser');
+        return view('users.pages.patients.infos-patient');
     }
 
     /**

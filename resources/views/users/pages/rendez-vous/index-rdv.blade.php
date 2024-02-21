@@ -21,7 +21,7 @@
                     <div class="page-utilities">
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto">
-                                <a href="{{ route('afficher-rendez-vous') }}" type="submit" class="btn app-btn-primary">Nouveau Rendez-vous</a>
+                                <a href="{{ route() }}" type="submit" class="btn app-btn-primary">Nouveau Rendez-vous</a>
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->
@@ -55,7 +55,7 @@
                                                 <th class="cell">Nom Patient</th>
                                                 <th class="cell">Nom Docteur</th>
                                                 <th class="cell">Specialité Médecin</th>
-                                                <th class="cell">Date de naissance</th>
+                                                <th class="cell">Date de Rendez-vous</th>
                                                 <th class="cell">Statut</th>
                                                 <th class="cell">Action</th>
                                             </tr>
@@ -68,7 +68,7 @@
                                                     <td class="cell">{{ Str::upper($rendezvous->patient->nom) }}</td>
                                                     <td class="cell">{{ Str::upper($rendezvous->user?->name) }}</td>
                                                     <td class="cell">{{ Str::upper($rendezvous->specialite?->intitule_spec) }}</td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->date_rdv) }}</td>
+                                                    <td class="cell">{{ Carbon\Carbon::parse($rendezvous->date_rdv)->format('d/m/y') }}</td>
                                                     <td class="cell">{{ Str::upper($rendezvous->status) }}</td>
                                                     <td class="cell">
                                                         <a class="btn-sm app-btn-secondary" href=""><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
