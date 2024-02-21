@@ -65,6 +65,9 @@
                                 </div>
 
                                 <div class="mb-1">
+                                    <input type="text" class="form-control" name="etat_conssult" value="" hidden>
+                                </div>
+                                <div class="mb-1">
                                     <label for="setting-input-2" class="form-label">Adresse patient</label>
                                     <input type="text" class="form-control" name="adresse" value="{{ old('adresse') }}">
                                     @error("adresse")

@@ -14,6 +14,7 @@ class patients extends Model
         'email',
         'contact',
         'datenais',
+        'etat_consult',
         'adresse',
         'note'
     ];
@@ -36,6 +37,11 @@ class patients extends Model
     public function roles()
     {
         return $this->belongsTo(roles::class);
+    }
+
+    public function AllDuJour($query)
+    {
+        return $query->whereDate('created_at', today());
     }
 
 

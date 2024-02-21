@@ -45,6 +45,7 @@ class patientController extends Controller
             $Patients->email = $request->email;
             $Patients->contact = $request->contact;
             $Patients->datenais = $request->datenais;
+            $Patients->etat_consult = 0;
             $Patients->adresse = $request->adresse;
             $Patients->note = $request->note;
             $Patients->save();

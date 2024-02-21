@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\patients;
+use Carbon\Carbon;
 class indexController extends Controller
 {
     /**
@@ -11,9 +12,11 @@ class indexController extends Controller
      */
     public function index()
     {
-        $compteurTotalPatientduJour = patients::where('');
-        $liste_patient = patients::with('roles','plainte')->orderByDesc('id')->paginate(10);
-        return view('users.pages.index', compact('liste_patient','compteurTotalPatientduJour'));
+        $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
+        $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
+        $compteurPatientconsulter = patients::where('etat_consult', 1)->count();
+        $liste_patient = patients::whereDate('created_at', '=', Carbon::today())->with('roles','plainte')->orderByDesc('id')->paginate(10); // La variable du tableau qui s'affiche sur la page et l'intitulé de la relation qu'il y a entre users et roles du fait qu'on affiche le role sur cette page alors il faut absolument le mettre
+        return view('users.pages.index', compact('liste_patient','compteurNombreTotalPatient','compteurDuJour', 'compteurPatientconsulter'));
     }
 
     /**

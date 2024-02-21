@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('contact');
             $table->string('datenaiss');
+            $table->integer('etat_consult');
             $table->string('adresse');
             $table->string('note');
             $table->timestamps();
