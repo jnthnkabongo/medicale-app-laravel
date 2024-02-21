@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\patients;
+use App\Models\plaintes;
+use App\Models\rendez;
+use App\Models\User;
+use Carbon\Carbon;
 class homeController extends Controller
 {
     /**
@@ -14,11 +18,21 @@ class homeController extends Controller
     {
         $roles = Auth::user()->roles_id;
         if ($roles == '1') {
-            return view('admin.pages-admin.dashboard');
+            $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
+            $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
+            $compteurPatientconsulter = patients::where('etat_consult', 1)->count(); //Compteur total patients consultes
+            $compteurTotalPersonnels = User::all()->count();
+            $compteurTotalRendez = rendez::all()->count();
+            $compteurPlaintes = plaintes::all()->count();
+            return view('admin.pages-admin.dashboard', compact('compteurNombreTotalPatient','compteurDuJour','compteurPatientconsulter','compteurTotalPersonnels','compteurTotalRendez','compteurPlaintes'));
+
         }if ($roles == '2') {
 
-            $liste_patient = patients::orderByDesc('id')->paginate(10);
-            return view('users.pages.index', compact('liste_patient'));
+            $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
+            $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
+            $compteurPatientconsulter = patients::where('etat_consult', 1)->count(); //Compteur total patients consultes
+            $liste_patient = patients::whereDate('created_at', '=', Carbon::today())->with('roles','plainte')->orderByDesc('id')->paginate(10); // La variable du tableau qui s'affiche sur la page et l'intitulé de la relation qu'il y a entre users et roles du fait qu'on affiche le role sur cette page alors il faut absolument le mettre
+            return view('users.pages.index', compact('liste_patient','compteurNombreTotalPatient','compteurDuJour', 'compteurPatientconsulter'));
 
         }else {
             return view('auth.page.login');

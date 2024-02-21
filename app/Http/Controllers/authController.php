@@ -41,12 +41,16 @@ class authController extends Controller
         return to_route('redirect')->withErrors('L\'email saisie est introubable dans notre base de données')->onlyInput('email');
     }
 
+    public function profil ()
+    {
+        return view('users.pages.profil-users');
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

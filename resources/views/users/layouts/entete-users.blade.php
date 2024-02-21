@@ -133,7 +133,7 @@
                                 <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
                                 <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
                                     <li class="dropdown-item">{{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}}</li>
-                                    <li><a class="dropdown-item" href="settings.html">Mon profil</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('profil') }}">Mon profil</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}">Se déconnecter</a></li>
                                 </ul>
                             @endauth

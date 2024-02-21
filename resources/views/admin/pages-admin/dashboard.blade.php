@@ -28,7 +28,7 @@
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
                                 <h4 class="stats-type mb-1">Total Patient du jour</h4>
-                                <div class="stats-figure">6</div>
+                                <div class="stats-figure">{{ $compteurDuJour }}</div>
                                 <div class="stats-meta text-success">
                                 </div>
                             </div><!--//app-card-body-->
@@ -39,8 +39,10 @@
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Patient</h4>
-                                <div class="stats-figure">250</div>
+                                <h4 class="stats-type mb-1">Nombre Total de Patients</h4>
+                                <div class="stats-figure">{{ $compteurNombreTotalPatient }}</div>
+                                <div class="stats-meta text-success">
+                                </div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
@@ -48,8 +50,10 @@
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Patient Consulté</h4>
-                                <div class="stats-figure">23</div>
+                                <h4 class="stats-type mb-1">Total Patients consultés</h4>
+                                <div class="stats-figure">{{ $compteurPatientconsulter }}</div>
+                                <div class="stats-meta text-success">
+                                </div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
@@ -57,13 +61,57 @@
                     <div class="col-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Laboratoire</h4>
+                                <h4 class="stats-type mb-1">Total Personnels</h4>
+                                <div class="stats-figure">{{ $compteurTotalPersonnels }}</div>
+                                <div class="stats-meta text-success">
+                                </div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div><!--//col-->
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <h4 class="stats-type mb-1">Total Laboratoire</h4>
                                 <div class="stats-figure">6</div>
+                                <div class="stats-meta text-success">
+                                </div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <h4 class="stats-type mb-1">Nombre Total d'impressions </h4>
+                                <div class="stats-figure">6</div>
+                                <div class="stats-meta text-success">
+                                </div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <h4 class="stats-type mb-1">Total Rendez-vous</h4>
+                                <div class="stats-figure">{{ $compteurTotalRendez }}</div>
                             </div><!--//app-card-body-->
                             <a class="app-card-link-mask" href="#"></a>
                         </div><!--//app-card-->
                     </div><!--//col-->
-                </div><!--//row-->
+                    <div class="col-6 col-lg-3">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <h4 class="stats-type mb-1">Total Plaintes</h4>
+                                <div class="stats-figure">{{ $compteurPlaintes }}</div>
+                            </div><!--//app-card-body-->
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div><!--//app-card-->
+                    </div><!--//col-->
+
+
 
 
                 <div class="tab-content" id="orders-table-tab-content">

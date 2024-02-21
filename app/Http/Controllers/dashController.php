@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\patients;
+use App\Models\plaintes;
+use App\Models\rendez;
+use App\Models\User;
+use Carbon\Carbon;
 class dashController extends Controller
 {
     /**
@@ -12,7 +16,13 @@ class dashController extends Controller
      */
     public function index()
     {
-        return view('admin.pages-admin.dashboard');
+        $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
+        $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
+        $compteurPatientconsulter = patients::where('etat_consult', 1)->count(); //Compteur total patients consultes
+        $compteurTotalPersonnels = User::all()->count();
+        $compteurTotalRendez = rendez::all()->count();
+        $compteurPlaintes = plaintes::all()->count();
+        return view('admin.pages-admin.dashboard', compact('compteurNombreTotalPatient','compteurDuJour','compteurPatientconsulter','compteurTotalPersonnels','compteurTotalRendez','compteurPlaintes'));
     }
 
     /**

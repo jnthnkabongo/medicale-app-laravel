@@ -141,4 +141,41 @@ class patientController extends Controller
             dd($e);
         }
     }
+
+    ///------ La partie administrateur -------//
+
+    // Formulaire de la liste des patients que verra l'administrateur
+    public function index_admin_patient()
+    {
+        return view('admin.pages-admin.patients.index-admin');
+    }
+
+    // Formulaire de creation du patient par la'dministrateur
+    public function creation_admin_patient()
+    {
+        return view('admin.pages-admin.patients.creation-admin-patient');
+    }
+
+    // Soumission du formulaire de creation du patient par l'administrateur
+    public function soumission_creation_admin_patient()
+    {
+
+    }
+
+    // Formulaire d'affichage du patient avant modification
+    public function modification_admin_patient()
+    {
+        return view('admin.pages-admin.patients.modification-admin-patient');
+    }
+
+    // La methode de soumission du formulaire de modification du patient
+    public function modifications_admin_patient()
+    {
+
+    }
+
+    public function suppresion_admin_patient()
+    {
+        
+    }
 }
