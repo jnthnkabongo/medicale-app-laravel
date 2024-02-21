@@ -10,7 +10,7 @@
             <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
                 <div class="inner">
                     <div class="app-card-body p-3 p-lg-4">
-                        <h3 class="mb-3">Bienvunu(e), {{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}} </h3>
+                        <h3 class="mb-3">Bienvunu(e) {{Str::upper( \Illuminate\Support\Facades\Auth::user()->roles->intitule )}} {{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}} </h3>
                         <div class="row gx-5 gy-3">
                             <div class="col-12 col-lg-12">
 
@@ -29,7 +29,7 @@
                     <div class="app-card app-card-stat shadow-sm h-100">
                         <div class="app-card-body p-3 p-lg-4">
                             <h4 class="stats-type mb-1">Total Patient du jour</h4>
-                            <div class="stats-figure">6</div>
+                            <div class="stats-figure"></div>
                             <div class="stats-meta text-success">
                             </div>
                         </div><!--//app-card-body-->
@@ -164,7 +164,6 @@
                                             <th class="cell">Contact</th>
                                             <th class="cell">Date de naissance</th>
                                             <th class="cell">Adresse</th>
-                                            <th class="cell">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -175,12 +174,9 @@
                                                 <td class="cell">{{ Str::upper($patients->nom) }}</td>
                                                 <td class="cell">{{ Str::upper($patients->email) }}</td>
                                                 <td class="cell">{{ Str::upper($patients->contact) }}</td>
-                                                <td class="cell">{{ Str::upper($patients->datenais) }}</td>
+                                                <td class="cell">{{ Carbon\Carbon::parse($patients->datenais)->format('d/m/Y H:i') }}</td>
                                                 <td class="cell">{{ Str::upper($patients->adresse) }}</</td>
-                                                <td class="cell">
-                                                    <a class="btn-sm app-btn-secondary" href="{{ route('modifier-patient', $patients->id) }}"><i class="fa-solid fa-edit"></i>&nbsp;Modifier&nbsp;</a>
-                                                    <a class="btn-sm app-btn-secondary" href="{{ route('suppression-patient', $patients->id)}}"><i class="fa-solid fa-trash"></i>&nbsp;Supprimer&nbsp;</a>
-                                                </td>
+
                                             </tr>
                                         @empty
                                             <tr>
@@ -213,14 +209,5 @@
 
         </div><!--//container-fluid-->
     </div><!--//app-content-->
-
-    <footer class="app-footer">
-        <div class="container text-center py-3">
-             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-        <small class="copyright">Designer avec <span class="sr-only"> </span> coeur<i class="fas fa-heart" style="color: #fb866a;"></i> par Bestech Consult</small>
-
-        </div>
-    </footer><!--//app-footer-->
-
 </div><!--//app-wrapper-->
 @endsection

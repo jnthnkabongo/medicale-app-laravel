@@ -24,9 +24,9 @@ class rendez extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function utilisateur()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 
     /**
@@ -39,9 +39,14 @@ class rendez extends Model
         return $this->belongsTo(patients::class);
     }
 
+    /**
+     * Get the user that owns the rendez
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function specialite()
     {
-        return $this->belongsTo(specialites::class);
+        return $this->belongsTo(specialites::class, 'spec_id', 'id_spec');
     }
 }
 

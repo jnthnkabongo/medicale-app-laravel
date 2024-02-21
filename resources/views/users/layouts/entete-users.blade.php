@@ -129,6 +129,7 @@
 
 			            <div class="app-utility-item app-user-dropdown dropdown">
                             @auth()
+                                {{Str::upper( \Illuminate\Support\Facades\Auth::user()->roles->intitule )}}
                                 <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
                                 <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
                                     <li class="dropdown-item">{{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}}</li>
@@ -274,6 +275,13 @@
         @yield('content')
     </div>
 
+    <footer class="app-footer">
+        <div class="container text-center py-3">
+             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+        <small class="copyright">Designer avec &nbsp;<span class="sr-only"> </span> coeur &nbsp;<i class="fas fa-heart" style="color: #fb866a;"></i>&nbsp; par Bestech Consult</small>
+
+        </div>
+    </footer><!--//app-footer-->
     <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
     <script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>

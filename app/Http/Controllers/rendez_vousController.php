@@ -16,8 +16,8 @@ class rendez_vousController extends Controller
      */
     public function index()
     {
-        $liste_rendezvous = rendez::with('utilisateur','specialite','patient')->orderByDesc('id')->paginate('5');
-        dd($liste_rendezvous);
+        $liste_rendezvous = rendez::with('user','specialite','patient')->orderByDesc('id')->paginate('5');
+        //dd($liste_rendezvous);
         return view('users.pages.rendez-vous.index-rdv', compact('liste_rendezvous'));
     }
 

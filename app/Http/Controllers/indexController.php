@@ -11,9 +11,9 @@ class indexController extends Controller
      */
     public function index()
     {
-
-        $liste_patient = patients::orderByDesc('id')->paginate(10);
-        return view('users.pages.index', compact('liste_patient'));
+        $compteurTotalPatientduJour = patients::where('');
+        $liste_patient = patients::with('roles','plainte')->orderByDesc('id')->paginate(10);
+        return view('users.pages.index', compact('liste_patient','compteurTotalPatientduJour'));
     }
 
     /**

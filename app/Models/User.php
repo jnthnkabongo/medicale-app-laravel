@@ -44,4 +44,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+       /**
+     * Get the user that owns the employers
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function roles()
+    {
+        return $this->belongsTo(roles::class);
+    }
+
+    /**
+     * Get the user that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function plainte()
+    {
+        return $this->belongsTo(plaintes::class, 'foreign_key', 'other_key');
+    }
+    /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function rendez()
+    {
+        return $this->hasMany(rendez_vous::class, 'role_user_table', 'user_id', 'roles_id');
+    }
+
 }

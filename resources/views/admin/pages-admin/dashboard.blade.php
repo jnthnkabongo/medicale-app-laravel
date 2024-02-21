@@ -12,7 +12,7 @@
                         <div class="app-card-body p-3 p-lg-4">
                             <div class="row gx-5 gy-3">
                                 <div class="col-12 col-lg-12">
-
+                                    <h3 class="mb-3">Bienvunu(e), {{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}} </h3>
                                     <div>Vivez simplement avec Gestion Médicale. Une application fait sur mésure pour la gestion de votre établisement Médicale.</div>
                                 </div><!--//col-->
 
@@ -65,7 +65,7 @@
                     </div><!--//col-->
                 </div><!--//row-->
 
-                
+
                 <div class="tab-content" id="orders-table-tab-content">
                     <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
                         <div class="app-card app-card-orders-table shadow-sm mb-5">

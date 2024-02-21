@@ -66,7 +66,7 @@
                                                     <td class="cell">{{ ($liste_rendezvous->perPage() * ($liste_rendezvous->currentPage() - 1 ))+ $loop->iteration }}</td>
                                                     <td class="cell"><span class="truncate">{{ Str::upper($rendezvous->code_patient) }}</span></td>
                                                     <td class="cell">{{ Str::upper($rendezvous->patient->nom) }}</td>
-                                                    <td class="cell">{{ Str::upper($rendezvous->utilisateur?->name) }}</td>
+                                                    <td class="cell">{{ Str::upper($rendezvous->user?->name) }}</td>
                                                     <td class="cell">{{ Str::upper($rendezvous->specialite?->intitule_spec) }}</td>
                                                     <td class="cell">{{ Str::upper($rendezvous->date_rdv) }}</td>
                                                     <td class="cell">{{ Str::upper($rendezvous->status) }}</td>
@@ -241,14 +241,6 @@
 
             </div><!--//container-fluid-->
         </div><!--//app-content-->
-
-        <footer class="app-footer">
-            <div class="container text-center py-3">
-                 <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designer avec <span class="sr-only"> </span> coeur<i class="fas fa-heart" style="color: #fb866a;"></i> par Bestech Consult</small>
-
-            </div>
-        </footer><!--//app-footer-->
 
     </div><!--//app-wrapper-->
 @endsection

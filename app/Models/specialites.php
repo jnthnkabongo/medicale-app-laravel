@@ -13,4 +13,14 @@ class specialites extends Model
         'id_spec',
         'intitule_spec'
     ];
+
+    /**
+     * The roles that belong to the specialites
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function rendez()
+    {
+        return $this->hasMany(rendez_vous::class, 'role_user_table', 'user_id', 'role_id');
+    }
 }
