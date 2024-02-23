@@ -4,7 +4,9 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\dashController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\indexController;
+use App\Http\Controllers\parametresController;
 use App\Http\Controllers\patientController;
+use App\Http\Controllers\plainteController;
 use App\Http\Controllers\rendez_vousController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,9 +66,8 @@ Route::middleware(['administrateur'])->group(function () {
     Route::get('admins-patient-modifications', [patientController::class, 'modifications_admin_patient'])->name('admin-patient-modifications'); //Formulaire de sousmission de modification
     Route::get('admins-patient-suppression', [patientController::class, 'suppresion_admin_patient'])->name('admin-patient-suppression'); //route de suppresion du patient par l'administrateur
 
-
     // Les routes de la parrie administrateur concernant le personnels
-    Route::get('admins-personnesl-index')->name('');
+    Route::get('admins-personnesl-index', [])->name('');
     Route::get('admins-personnesl-creation')->name('');
     Route::post('admins-personnesl-creations')->name('');
     Route::get('admins-personnesl-modification')->name('');
@@ -74,15 +75,15 @@ Route::middleware(['administrateur'])->group(function () {
     Route::get('admins-personnesl-suppression')->name('');
 
     // Les routes de la parrie administrateur concernant le plaintes
-    Route::get('admins-plainte-index')->name('admins-plainte-index');
-    Route::get('admins-plainte-creation')->name('');
-    Route::post('admins-plainte-creations')->name('');
-    Route::get('admins-plainte-modification')->name('');
-    Route::get('admins-plainte-modifications')->name('');
-    Route::get('admins-plainte-suppression')->name('');
+    Route::get('admins-plainte-index',[plainteController::class, 'admin_plainte_index'])->name('admins-plainte-index');
+    Route::get('admins-plainte-creation',[plainteController::class, 'admin_creation_plainte'])->name('');
+    Route::post('admins-plainte-creations',[plainteController::class, ''])->name('');
+    Route::get('admins-plainte-modification',[plainteController::class, 'admin_modification_plainte'])->name('');
+    Route::get('admins-plainte-modifications',[plainteController::class, ''])->name('');
+    Route::get('admins-plainte-suppression',[plainteController::class, ''])->name('');
 
     // Les routes de la partie administrateur concernant le rendez-vous
-    Route::get('admins-rendez-vous-index')->name('admins-rendez-vous-index');
+    Route::get('admins-rendez-vous-index', [rendez_vousController::class, 'admin_rendez_vous'])->name('admins-rendez-vous-index');
     Route::get('admins-rendez-vous-creation')->name('');
     Route::post('admins-rendez-vous-creations')->name('');
     Route::get('admins-rendez-vous-modification')->name('');
@@ -90,17 +91,17 @@ Route::middleware(['administrateur'])->group(function () {
     Route::get('admins-rendez-vous-suppression')->name('');
 
     // Les routes de la parrie administrateur concernant le parametres
-    Route::get('admins-parametres-index')->name('admins-parametres-index');
+    Route::get('admins-parametres-index', [parametresController::class, 'admin_parametres'])->name('admins-parametres-index');
     Route::get('admins-parametres-creation')->name('');
     Route::post('admins-parametres-creations')->name('');
     Route::get('admins-parametres-modification')->name('');
     Route::get('admins-parametres-modifications')->name('');
     Route::get('admins-parametres-suppression')->name('');
 
-    /*
+    // Les routes de la partie administrateur concernant les personnels
 
-    Route::get()->name('');
-    Route::get()->name('');
+    Route::get('admins-personnels-index', [dashController::class, 'admin_personel'])->name('admin_personels-index');
+   /* Route::get()->name('');
     Route::post()->name('');
     Route::get()->name('');
     Route::get()->name('');

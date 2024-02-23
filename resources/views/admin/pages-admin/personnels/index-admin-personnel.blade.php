@@ -4,7 +4,7 @@
     <div class="app-content pt-3 p-md-3 p-lg-4 mt-5">
         <div class="row g-3 mb-4 align-items-center justify-content-between">
             <div class="col-auto">
-                <h1 class="app-page-title mb-0">Liste Patients</h1>
+                <h1 class="app-page-title mb-0">Liste Personnels</h1>
             </div>
             <div class="col-auto">
                 <form action="{{ route('rechercher-patient') }}" method="GET" class="table-search-form row gx-1 align-items-center">
@@ -13,7 +13,7 @@
                         <a type="submit" href="{{ route('liste-patient') }}" class="btn app-btn-primary">Actualiser</a>
                     </div>
                     <div class="col-auto">
-                        <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher un patient">
+                        <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher un utilisateur...">
                         @error('rechercher_patients')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -28,7 +28,7 @@
                  <div class="page-utilities">
                     <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                         <div class="col-auto">
-                            <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Créer patient</a>
+                            <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Créer Utilisateur</a>
                         </div>
                     </div>
                 </div>
@@ -55,37 +55,34 @@
                                     <thead>
                                         <tr>
                                             <th class="cell">N</th>
-                                            <th class="cell">Code Patient</th>
                                             <th class="cell">Nom</th>
                                             <th class="cell">E-mail</th>
-                                            <th class="cell">Contact</th>
-                                            <th class="cell">Note</th>
+                                            <th class="cell">Mot de passe </th>
+                                            <th class="cell">Roles</th>
                                             <th class="cell">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @forelse ($admin_liste_personnel as $admin_personnel)
                                             <tr>
-                                                <td class="cell"></td>
-                                                <td class="cell"><span class="truncate"><span></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></span></td>
+                                                <td class="cell">{{ ($admin_liste_personnel->perPage() * ($admin_liste_personnel->currentPage() - 1 ))+ $loop->iteration }}</td>
+                                                <td class="cell">{{ Str::upper($admin_personnel->name) }}</td>
+                                                <td class="cell">{{ $admin_personnel->email }}</td>
+                                                <td class="cell">{{ $admin_personnel->password }}</td>
+                                                <td class="cell">{{ Str::upper($admin_personnel->roles->intitule) }}</td>
                                                 <td class="cell">
                                                     <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
                                                     <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
                                                     <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
                                                 </td>
                                             </tr>
-
+                                        @empty
                                             <tr>
                                                 <td class="cell" colspan="12">
                                                     <div class="" style="text-align: center">Aucune transaction effectuée</div>
                                                 </td>
                                             </tr>
-
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -94,7 +91,7 @@
                     </div>
                     <nav class="app-pagination">
                         <ul class="pagination justify-content-center">
-
+                            {{ $admin_liste_personnel->links() }}
                         </ul>
                     </nav>
                     @if(Session::has('message'))

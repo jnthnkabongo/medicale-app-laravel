@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\specialites;
+use App\Models\User;
+
 class patientController extends Controller
 {
     /**
@@ -147,7 +149,8 @@ class patientController extends Controller
     // Formulaire de la liste des patients que verra l'administrateur
     public function index_admin_patient()
     {
-        return view('admin.pages-admin.patients.index-admin');
+        
+        return view('admin.pages-admin.patients.index-admin', compact('admin_liste_personnel'));
     }
 
     // Formulaire de creation du patient par la'dministrateur
@@ -174,8 +177,9 @@ class patientController extends Controller
 
     }
 
+    // La methode de suppression du patient par l'administrateur
     public function suppresion_admin_patient()
     {
-        
+
     }
 }

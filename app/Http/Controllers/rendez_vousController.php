@@ -83,4 +83,9 @@ class rendez_vousController extends Controller
     {
         //
     }
+
+
+    public function admin_rendez_vous(){
+        return view('admin.pages-admin.rendez-vous.index-admin-rendez-vous');
+    }
 }

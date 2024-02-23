@@ -4,7 +4,7 @@
     <div class="app-content pt-3 p-md-3 p-lg-4 mt-5">
         <div class="row g-3 mb-4 align-items-center justify-content-between">
             <div class="col-auto">
-                <h1 class="app-page-title mb-0">Liste Patients</h1>
+                <h1 class="app-page-title mb-0">Liste Plainte</h1>
             </div>
             <div class="col-auto">
                 <form action="{{ route('rechercher-patient') }}" method="GET" class="table-search-form row gx-1 align-items-center">
@@ -13,7 +13,7 @@
                         <a type="submit" href="{{ route('liste-patient') }}" class="btn app-btn-primary">Actualiser</a>
                     </div>
                     <div class="col-auto">
-                        <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher un patient">
+                        <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher une plainte">
                         @error('rechercher_patients')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -28,7 +28,7 @@
                  <div class="page-utilities">
                     <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                         <div class="col-auto">
-                            <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Créer patient</a>
+                            <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Créer plainte</a>
                         </div>
                     </div>
                 </div>

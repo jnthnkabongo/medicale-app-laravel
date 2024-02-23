@@ -22,7 +22,10 @@ class dashController extends Controller
         $compteurTotalPersonnels = User::all()->count();
         $compteurTotalRendez = rendez::all()->count();
         $compteurPlaintes = plaintes::all()->count();
-        return view('admin.pages-admin.dashboard', compact('compteurNombreTotalPatient','compteurDuJour','compteurPatientconsulter','compteurTotalPersonnels','compteurTotalRendez','compteurPlaintes'));
+        $liste_de_tous_patients = patients::with('roles')->paginate(10);
+        return view('admin.pages-admin.dashboard', compact('compteurNombreTotalPatient',
+        'compteurDuJour','compteurPatientconsulter','compteurTotalPersonnels',
+        'compteurTotalRendez','compteurPlaintes','liste_de_tous_patients'));
     }
 
     /**
@@ -70,5 +73,13 @@ class dashController extends Controller
      */
     public function destroy(string $id)
     {
+    }
+
+    //
+
+    public function admin_personel()
+    {
+        $admin_liste_personnel = User::with('roles')->paginate(10);
+        return view('admin.pages-admin.personnels.index-admin-personnel', compact('admin_liste_personnel'));
     }
 }

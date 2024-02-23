@@ -12,7 +12,7 @@
                         <div class="app-card-body p-3 p-lg-4">
                             <div class="row gx-5 gy-3">
                                 <div class="col-12 col-lg-12">
-                                    <h3 class="mb-3">Bienvunu(e), {{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}} </h3>
+                                    <h3 class="mb-3">Bienvenu(e), {{Str::upper( \Illuminate\Support\Facades\Auth::user()->roles->intitule )}} {{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}} </h3>
                                     <div>Vivez simplement avec Gestion Médicale. Une application fait sur mésure pour la gestion de votre établisement Médicale.</div>
                                 </div><!--//col-->
 
@@ -129,18 +129,27 @@
                                                 <th class="cell">Contact</th>
                                                 <th class="cell">Date de naissance</th>
                                                 <th class="cell">Adresse</th>
-                                                <th class="cell">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($liste_de_tous_patients as $admin_patient)
+                                                <tr>
+                                                    <td class="cell">{{ ($liste_de_tous_patients->perPage() * ($liste_de_tous_patients->currentPage() - 1 ))+ $loop->iteration }}</td>
+                                                    <td class="cell">{{ Str::upper($admin_patient->code_patient )}}</td>
+                                                    <td class="cell">{{ $admin_patient->nom }}</td>
+                                                    <td class="cell">{{ $admin_patient->email }}</td>
+                                                    <td class="cell">{{ $admin_patient->contact }}</td>
+                                                    <td class="cell">{{ Carbon\Carbon::parse($admin_patient->datenais)->format('d/m/y') }}</td>
+                                                    <td class="cell">{{ $admin_patient->adresse }}</td>
 
-
-
+                                                </tr>
+                                            @empty
                                                 <tr>
                                                     <td class="cell" colspan="12">
-                                                        <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                                        <div class="" style="text-align: center">Aucune patient enregistré</div>
                                                     </td>
                                                 </tr>
+                                            @endforelse
 
                                         </tbody>
                                     </table>

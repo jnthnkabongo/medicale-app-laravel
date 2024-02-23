@@ -61,4 +61,43 @@ class plainteController extends Controller
     {
         //
     }
+
+     ///------ La partie administrateur -------//
+
+     // Affichage de la liste des plaintes
+     public function admin_plainte_index()
+     {
+        return view('admin.pages-admin.plaintes.index-admin-plainte');
+     }
+
+     // Affichage du formulaire de creation de la plainte
+     public function admin_creation_plainte()
+     {
+        return view('admin.pages-admin.plaintes.creation-admin-plainte');
+     }
+
+     // La methode de soumission du formulaire de modification
+     public function admin_soumission_creation_plainte()
+     {
+
+     }
+
+     // Affichage du formulaire de modification de la plainte
+     public function admin_modification_plainte()
+     {
+        return view('admin.pages-admin.plaintes.modification-admin-plainte');
+     }
+
+     // La methode de soumission du formulaire de modification de la plainte
+     public function admin_modifications_plainte()
+     {
+
+     }
+
+     // La methode de suppression de la plainte par l'administrateur
+     public function admin_suppression_plainte()
+     {
+
+     }
+
 }

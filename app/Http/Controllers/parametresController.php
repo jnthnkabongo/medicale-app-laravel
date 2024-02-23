@@ -61,4 +61,10 @@ class parametresController extends Controller
     {
         //
     }
+
+
+    public function admin_parametres()
+    {
+        return view('admin.pages-admin.parametres.index-admin-parametre');
+    }
 }
