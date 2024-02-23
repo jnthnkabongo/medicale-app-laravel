@@ -6,7 +6,7 @@
             <div class="container-xl mt-5">
 
                 <h1 class="app-page-title mt-5">Dashboard</h1>
-
+                <hr class="mb-4">
                 <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
                     <div class="inner">
                         <div class="app-card-body p-3 p-lg-4">

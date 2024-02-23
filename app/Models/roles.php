@@ -9,7 +9,7 @@ class roles extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_roles',
+        'id',
         'intitule'
     ];
 }

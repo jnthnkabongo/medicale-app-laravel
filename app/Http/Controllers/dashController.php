@@ -8,6 +8,7 @@ use App\Models\patients;
 use App\Models\plaintes;
 use App\Models\rendez;
 use App\Models\User;
+use App\Models\roles;
 use Carbon\Carbon;
 class dashController extends Controller
 {
@@ -81,5 +82,12 @@ class dashController extends Controller
     {
         $admin_liste_personnel = User::with('roles')->paginate(10);
         return view('admin.pages-admin.personnels.index-admin-personnel', compact('admin_liste_personnel'));
+    }
+
+    public function admin_modification_personnel(User $admin_personnel)
+    {
+        $role_select =roles::all();
+        //dd($role_select);
+        return view('admin.pages-admin.personnels.modification-admin-personnel', compact('admin_personnel','role_select'));
     }
 }

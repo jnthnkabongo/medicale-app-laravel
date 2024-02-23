@@ -22,7 +22,6 @@
                         <button type="submit" class="btn app-btn-primary">Rechercher</button>
                     </div>
                 </form>
-
             </div>
             <div class="col-auto">
                  <div class="page-utilities">
@@ -34,11 +33,11 @@
                 </div>
             </div>
         </div>
-
+        <hr class="mb-4">
     </div>
 </div>
-<div class="app-wrapper">
 
+<div class="app-wrapper">
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xxl">
 
@@ -71,7 +70,7 @@
                                                 <td class="cell">{{ $admin_personnel->password }}</td>
                                                 <td class="cell">{{ Str::upper($admin_personnel->roles->intitule) }}</td>
                                                 <td class="cell">
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
+                                                    <a class="btn btn-sm" href="{{ route( 'admin_personnel-modification', $admin_personnel->id) }}"><i class="fa-solid fa-edit fa-1x"></i></a>
                                                     <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
                                                     <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
                                                 </td>
