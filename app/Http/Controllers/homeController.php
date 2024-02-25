@@ -25,7 +25,9 @@ class homeController extends Controller
             $compteurTotalRendez = rendez::all()->count();
             $compteurPlaintes = plaintes::all()->count();
             $liste_de_tous_patients = patients::with('roles')->paginate(10);
-            return view('admin.pages-admin.dashboard', compact('compteurNombreTotalPatient','compteurDuJour','compteurPatientconsulter','compteurTotalPersonnels','compteurTotalRendez','compteurPlaintes'));
+            return view('admin.pages-admin.dashboard', compact('compteurNombreTotalPatient',
+            'compteurDuJour','compteurPatientconsulter','compteurTotalPersonnels',
+            'compteurTotalRendez','compteurPlaintes','liste_de_tous_patients'));
 
         }if ($roles == '2') {
 

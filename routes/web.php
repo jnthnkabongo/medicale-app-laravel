@@ -102,8 +102,8 @@ Route::middleware(['administrateur'])->group(function () {
 
     Route::get('admins-personnels-index', [dashController::class, 'admin_personel'])->name('admin_personels-index');
     Route::get('admins-personnels-modification-{admin_personnel}', [dashController::class, 'admin_modification_personnel'])->name('admin_personnel-modification');
-   /* Route::post()->name('');
-    Route::get()->name('');
+    Route::get('admin-personnel-modifications-{admin_personnel}', [dashController::class, 'admin_modifications_personnel'])->name('admin_personnel_modifications');
+   /* Route::get()->name('');
     Route::get()->name('');
     Route::get()->name('');*/
 

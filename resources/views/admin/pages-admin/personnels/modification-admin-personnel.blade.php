@@ -21,7 +21,7 @@
                 <div class="col-12 col-md-10">
                     <div class="app-card app-card-settings shadow-sm p-4">
                         <div class="app-card-body">
-                            <form class="settings-form">
+                            <form class="settings-form" action="{{ route('admin_personnel_modifications', $admin_personnel) }}" method="GET">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="setting-input-1" class="form-label">Identifiant<span class="ms-2" data-container="body" data-bs-toggle="popover" data-trigger="hover" data-placement="top" data-content="This is a Bootstrap popover example. You can use popover to provide extra info."><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -29,22 +29,22 @@
                                           <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
                                           <circle cx="8" cy="4.5" r="1"/>
                                     </svg></span></label>
-                                    <input type="text" class="form-control" id="setting-input-1" value="{{ $admin_personnel->id }}" readonly>
+                                    <input type="text" class="form-control" id="setting-input-1" name="" value="{{ $admin_personnel->id }}" readonly>
                                 </div>
                                 <div class="mb-3">
                                     <label for="setting-input-2" class="form-label">Nom Utilisateur</label>
-                                    <input type="text" class="form-control" id="setting-input-2" value="{{ $admin_personnel->name }}" required>
+                                    <input type="text" class="form-control" id="setting-input-2" name="name" value="{{ $admin_personnel->name }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="setting-input-3" class="form-label">Email Utilisateur</label>
-                                    <input type="email" class="form-control" id="setting-input-3" value="{{ $admin_personnel->email }}">
+                                    <input type="email" class="form-control" id="setting-input-3" name="email" value="{{ $admin_personnel->email }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="setting-input-3" class="form-label">Mot de passe Utilisateur</label>
-                                    <input type="email" class="form-control" id="setting-input-3" value="{{ $admin_personnel->password }}">
+                                    <input type="text" class="form-control" id="setting-input-3" name="password" value="{{ $admin_personnel->password }}">
                                 </div>
                                 <div class="mb-3">
-                                    <select class="form-control" name="" id="">
+                                    <select class="form-control" name="roles_id" id="">
                                         <option value="{{ $admin_personnel->roles_id }}">{{ Str::upper($admin_personnel->roles->intitule) }}</option>
                                         @foreach ($role_select as $item)
                                             <option value="{{ $item->id }}">{{ Str::upper($item->intitule) }}</option>
@@ -54,7 +54,14 @@
                                 <button type="submit" class="btn app-btn-primary w-100" >Modifier</button>
                             </form>
                         </div>
-
+                        @if(Session::has('message'))
+                            <script>
+                                swal("Message", "{{ Session::get('message') }}", 'danger', {
+                                    button:true,
+                                    button: "OK"
+                                });
+                            </script>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@ use App\Models\rendez;
 use App\Models\User;
 use App\Models\roles;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 class dashController extends Controller
 {
     /**
@@ -87,7 +88,21 @@ class dashController extends Controller
     public function admin_modification_personnel(User $admin_personnel)
     {
         $role_select =roles::all();
-        //dd($role_select);
         return view('admin.pages-admin.personnels.modification-admin-personnel', compact('admin_personnel','role_select'));
+    }
+
+    public function admin_modifications_personnel(Request $request, User $admin_personnel)
+    {
+        try {
+            $admin_personnel->name = $request->name;
+            $admin_personnel->email = $request->email;
+            $admin_personnel->password = $request->password;
+            $admin_personnel->roles_id = Hash::make($request->roles_id) ;
+            dd($admin_personnel);
+            $admin_personnel->update();
+            return to_route('admin_personels-index')->with('Messge', 'La modification s\'effectuer avec succès...');
+        } catch (\Throwable $e) {
+           dd($e);
+        }
     }
 }
