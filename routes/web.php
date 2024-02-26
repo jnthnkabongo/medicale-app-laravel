@@ -60,8 +60,8 @@ Route::middleware(['administrateur'])->group(function () {
 
     // Les routes de la partie administrateur concernant le patient
     Route::get('admins-patient-index', [patientController::class, 'index_admin_patient'])->name('admin-patient-index'); // Liste de tous les patients du coté adminitrateur
-    Route::get('admins-patient-creations', [patientController::class, 'soumission_creation_admin_patient'])->name('admin-patient-creations');
-    Route::post('admins-patient-creation', [patientController::class, 'creation_admin_patient'])->name('admin-patient-creation');
+    Route::get('admins-patient-creations', [patientController::class, 'soumission_creation_admin_patient'])->name('admin-patient-creations'); //Affichage du formulaire de creation du patient
+    Route::post('admins-patient-creation', [patientController::class, 'creation_admin_patient'])->name('admin-patient-creation'); // Soumission du formulaire de creation du patient
     Route::get('admins-patient-modification', [patientController::class, 'modification_admin_patient'])->name('admin-patient-modification'); // Formulaire affichant la page de modification du patient
     Route::get('admins-patient-modifications', [patientController::class, 'modifications_admin_patient'])->name('admin-patient-modifications'); //Formulaire de sousmission de modification
     Route::get('admins-patient-suppression', [patientController::class, 'suppresion_admin_patient'])->name('admin-patient-suppression'); //route de suppresion du patient par l'administrateur
@@ -103,9 +103,10 @@ Route::middleware(['administrateur'])->group(function () {
     Route::get('admins-personnels-index', [dashController::class, 'admin_personel'])->name('admin_personels-index');
     Route::get('admins-personnels-modification-{admin_personnel}', [dashController::class, 'admin_modification_personnel'])->name('admin_personnel-modification');
     Route::get('admin-personnel-modifications-{admin_personnel}', [dashController::class, 'admin_modifications_personnel'])->name('admin_personnel_modifications');
-   /* Route::get()->name('');
-    Route::get()->name('');
-    Route::get()->name('');*/
+    Route::get('admin-personnel-suppression-{admin_personnel}', [dashController::class, 'admin_suppression_personnel'])->name('admin_personnel_suppression');
+    Route::get('admins-personnel-recherche', [dashController::class, 'admin_recherche_personnel'])->name('admin_personnel_recherche');
+    Route::post('admin-personnel-creation', [dashController::class, 'admin_creation_personnel'])->name('admin_personnel_creation');
+    Route::get('admin-personnel-creations', [dashController::class, 'admin_creation_personnels'])->name('admin_personnel_creations');
 
 });
 //Page d'erreur retour automatique

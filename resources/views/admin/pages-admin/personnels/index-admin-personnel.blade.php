@@ -7,13 +7,13 @@
                 <h1 class="app-page-title mb-0">Liste Personnels</h1>
             </div>
             <div class="col-auto">
-                <form action="{{ route('rechercher-patient') }}" method="GET" class="table-search-form row gx-1 align-items-center">
+                <form action="{{ route('admin_personnel_recherche') }}" method="GET" class="table-search-form row gx-1 align-items-center">
                     @csrf
                     <div class="col-auto">
-                        <a type="submit" href="{{ route('liste-patient') }}" class="btn app-btn-primary">Actualiser</a>
+                        <a type="submit" href="{{ route('admin_personels-index') }}" class="btn app-btn-primary">Actualiser</a>
                     </div>
                     <div class="col-auto">
-                        <input type="text" id="search-orders" name="rechercher_patients" class="form-control form-control-md search-orders " placeholder="Rechercher un utilisateur...">
+                        <input type="text" id="search-orders" name="rechercher_utilisateur" class="form-control form-control-md search-orders " placeholder="Rechercher un utilisateur...">
                         @error('rechercher_patients')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -27,7 +27,7 @@
                  <div class="page-utilities">
                     <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                         <div class="col-auto">
-                            <a href="{{ route('formulaire-creation-patient') }}" type="submit" class="btn app-btn-primary">Créer Utilisateur</a>
+                            <a href="{{ route('admin_personnel_creations') }}" type="submit" class="btn app-btn-primary">Créer Utilisateur</a>
                         </div>
                     </div>
                 </div>
@@ -65,20 +65,20 @@
                                         @forelse ($admin_liste_personnel as $admin_personnel)
                                             <tr>
                                                 <td class="cell">{{ ($admin_liste_personnel->perPage() * ($admin_liste_personnel->currentPage() - 1 ))+ $loop->iteration }}</td>
-                                                <td class="cell">{{ Str::upper($admin_personnel->name) }}</td>
+                                                <td class="cell"><span class="truncate">{{ Str::upper($admin_personnel->name) }}</span></td>
                                                 <td class="cell">{{ $admin_personnel->email }}</td>
-                                                <td class="cell">{{ $admin_personnel->password }}</td>
+                                                <td class="cell"><span class="truncate">{{ $admin_personnel->password }}</span></td>
                                                 <td class="cell">{{ Str::upper($admin_personnel->roles->intitule) }}</td>
                                                 <td class="cell">
                                                     <a class="btn btn-sm" href="{{ route( 'admin_personnel-modification', $admin_personnel->id) }}"><i class="fa-solid fa-edit fa-1x"></i></a>
                                                     <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
+                                                    <a class="btn btn-sm" href="{{ route('admin_personnel_suppression', $admin_personnel->id) }}"><i class="fa-solid fa-trash fa-1x"></i></a>
                                                 </td>
                                             </tr>
                                         @empty
                                             <tr>
                                                 <td class="cell" colspan="12">
-                                                    <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                                    <div class="" style="text-align: center">Aucun utilisateur trouvé</div>
                                                 </td>
                                             </tr>
                                         @endforelse
