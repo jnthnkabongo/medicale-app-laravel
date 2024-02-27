@@ -17,6 +17,7 @@ class homeController extends Controller
     public function index()
     {
         $roles = Auth::user()->roles_id;
+        // Si le role est 1 alors on dirige l'utilisateur a l'interface administrateur
         if ($roles == '1') {
             $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
             $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
@@ -30,12 +31,24 @@ class homeController extends Controller
             'compteurTotalRendez','compteurPlaintes','liste_de_tous_patients'));
 
         }if ($roles == '2') {
+            // Si le role est 2 alors on dirige l'utilisateur a l'interface du medecin
 
             $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
             $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
             $compteurPatientconsulter = patients::where('etat_consult', 1)->count(); //Compteur total patients consultes
             $liste_patient = patients::whereDate('created_at', '=', Carbon::today())->with('roles','plainte')->orderByDesc('id')->paginate(10); // La variable du tableau qui s'affiche sur la page et l'intitulé de la relation qu'il y a entre users et roles du fait qu'on affiche le role sur cette page alors il faut absolument le mettre
             return view('users.pages.index', compact('liste_patient','compteurNombreTotalPatient','compteurDuJour', 'compteurPatientconsulter'));
+
+        }if ($roles == '3') {
+            // Si le role est 3 alors on dirige l'utilisateur a l'interface du laborantin
+
+
+        }if ($roles == '4') {
+            // Si le role est 4 alors on dirige l'utilisateur a l'interface de la receptionniste
+
+        }
+        if ($roles == '5') {
+            // Si le role est 5 alors on dirige l'utilisateur a l'interface de l'infirmier
 
         }else {
             return view('auth.page.login');
