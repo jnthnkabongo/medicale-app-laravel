@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\plaintes;
 use Illuminate\Http\Request;
 
 class plainteController extends Controller
@@ -67,7 +68,8 @@ class plainteController extends Controller
      // Affichage de la liste des plaintes
      public function admin_plainte_index()
      {
-        return view('admin.pages-admin.plaintes.index-admin-plainte');
+        $admin_liste_plainte = plaintes::paginate(10);
+        return view('admin.pages-admin.plaintes.index-admin-plainte', compact('admin_liste_plainte'));
      }
 
      // Affichage du formulaire de creation de la plainte

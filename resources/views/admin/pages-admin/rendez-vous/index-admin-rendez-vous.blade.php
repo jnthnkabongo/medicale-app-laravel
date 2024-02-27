@@ -56,36 +56,38 @@
                                         <tr>
                                             <th class="cell">N</th>
                                             <th class="cell">Code Patient</th>
-                                            <th class="cell">Nom</th>
-                                            <th class="cell">E-mail</th>
-                                            <th class="cell">Contact</th>
-                                            <th class="cell">Note</th>
+                                            <th class="cell">Nom Patient</th>
+                                            <th class="cell">Nom Spécialiste</th>
+                                            <th class="cell">Spécialité</th>
+                                            <th class="cell">Statut</th>
+                                            <th class="cell">Date Rendez-vous</th>
                                             <th class="cell">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                            <tr>
-                                                <td class="cell"></td>
-                                                <td class="cell"><span class="truncate"><span></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></span></td>
-                                                <td class="cell">
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="cell" colspan="12">
-                                                    <div class="" style="text-align: center">Aucune transaction effectuée</div>
-                                                </td>
-                                            </tr>
-
+                                        @forelse ($admin_liste_rendez_vous as $admin_rendez_vous)
+                                        <tr>
+                                            <td class="cell"></td>
+                                            <td class="cell"><span class="truncate">{{ $admin_rendez_vous->code_patient }}<span></td>
+                                            <td class="cell">{{ Str::upper($admin_rendez_vous->patient->nom) }}</td>
+                                            <td class="cell">{{ Str::upper($admin_rendez_vous->user->name) }}</td>
+                                            <td class="cell">{{ Str::upper($admin_rendez_vous->specialite->intitule_spec) }}</td>
+                                            <td class="cell">{{ $admin_rendez_vous->status }}</span></td>
+                                            <td class="cell">{{ $admin_rendez_vous->date_rdv }}</td>
+                                            <td class="cell">
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td class="cell" colspan="12">
+                                                <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                            </td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

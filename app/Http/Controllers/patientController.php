@@ -89,7 +89,7 @@ class patientController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. php artisan serve --host 192.168.74.40
      */
 
     //La fonction de recherche d'un patient
@@ -149,8 +149,8 @@ class patientController extends Controller
     // Formulaire de la liste des patients que verra l'administrateur
     public function index_admin_patient()
     {
-        
-        return view('admin.pages-admin.patients.index-admin', compact('admin_liste_personnel'));
+        $admin_liste_patients = patients::paginate(10);
+        return view('admin.pages-admin.patients.index-admin', compact('admin_liste_patients'));
     }
 
     // Formulaire de creation du patient par la'dministrateur

@@ -55,37 +55,35 @@
                                     <thead>
                                         <tr>
                                             <th class="cell">N</th>
-                                            <th class="cell">Code Patient</th>
-                                            <th class="cell">Nom</th>
-                                            <th class="cell">E-mail</th>
-                                            <th class="cell">Contact</th>
-                                            <th class="cell">Note</th>
+                                            <th class="cell">Plainant</th>
+                                            <th class="cell">Intitule plainte</th>
+                                            <th class="cell">Accusé</th>
+
                                             <th class="cell">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($admin_liste_plainte as $admin_plainte)
+                                        <tr>
+                                            <td class="cell">{{ ($admin_liste_plainte->perPage() * ($admin_liste_plainte->currentPage() - 1 ))+ $loop->iteration }}</td>
+                                            <td class="cell"></td>
+                                            <td class="cell">{{ $admin_plainte->intitule_plainte }}</td>
 
-                                            <tr>
-                                                <td class="cell"></td>
-                                                <td class="cell"><span class="truncate"><span></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></span></td>
-                                                <td class="cell">
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="cell" colspan="12">
-                                                    <div class="" style="text-align: center">Aucune transaction effectuée</div>
-                                                </td>
-                                            </tr>
-
+                                            <td class="cell"></span></td>
+                                            <td class="cell">
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td class="cell" colspan="12">
+                                                <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                            </td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

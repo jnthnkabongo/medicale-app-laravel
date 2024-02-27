@@ -85,7 +85,9 @@ class rendez_vousController extends Controller
     }
 
 
-    public function admin_rendez_vous(){
-        return view('admin.pages-admin.rendez-vous.index-admin-rendez-vous');
+    public function admin_rendez_vous()
+    {
+        $admin_liste_rendez_vous = rendez::with('patient', 'user','specialite')->paginate(10);
+        return view('admin.pages-admin.rendez-vous.index-admin-rendez-vous', compact('admin_liste_rendez_vous'));
     }
 }

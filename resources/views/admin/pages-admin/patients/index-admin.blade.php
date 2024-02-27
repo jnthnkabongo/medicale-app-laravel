@@ -64,28 +64,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                            <tr>
-                                                <td class="cell"></td>
-                                                <td class="cell"><span class="truncate"><span></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></td>
-                                                <td class="cell"></span></td>
-                                                <td class="cell">
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
-                                                    <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="cell" colspan="12">
-                                                    <div class="" style="text-align: center">Aucune transaction effectuée</div>
-                                                </td>
-                                            </tr>
-
+                                        @forelse ($admin_liste_patients as $admin_patients)
+                                        <tr>
+                                            <td class="cell"></td>
+                                            <td class="cell"><span class="truncate">{{ $admin_patients->code_patient }}<span></td>
+                                            <td class="cell">{{ Str::upper($admin_patients->nom) }}</td>
+                                            <td class="cell">{{ $admin_patients->email }}</td>
+                                            <td class="cell">{{ $admin_patients->contact }}</td>
+                                            <td class="cell"><span class="truncate">{{  Str::upper($admin_patients->note) }}</span></td>
+                                            <td class="cell">
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-calendar fa-1x"></i></a>
+                                                <a class="btn btn-sm" href=""><i class="fa-solid fa-trash fa-1x"></i></a>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td class="cell" colspan="12">
+                                                <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                            </td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
