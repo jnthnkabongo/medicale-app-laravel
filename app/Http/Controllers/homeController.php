@@ -16,8 +16,9 @@ class homeController extends Controller
      */
     public function index()
     {
-        $roles = Auth::user()->roles_id;
+
         // Si le role est 1 alors on dirige l'utilisateur a l'interface administrateur
+        $roles = Auth::user()->roles_id;
         if ($roles == '1') {
             $compteurNombreTotalPatient = patients::all()->count(); //Compteur qui fait la somme de tous les patients
             $compteurDuJour = patients::whereDate('created_at', '=', Carbon::today())->count(); //Compteur qui sort que les pqtients qui ont été le jour ou l'on est...
@@ -41,15 +42,14 @@ class homeController extends Controller
 
         }if ($roles == '3') {
             // Si le role est 3 alors on dirige l'utilisateur a l'interface du laborantin
-
-
+            return view('labo.pages-labo.index-labo');
         }if ($roles == '4') {
             // Si le role est 4 alors on dirige l'utilisateur a l'interface de la receptionniste
-
+            return view('receptionniste.pages-recep.index-recep');
         }
         if ($roles == '5') {
             // Si le role est 5 alors on dirige l'utilisateur a l'interface de l'infirmier
-
+            return view('infirmier.pages-infir.index-infir');
         }else {
             return view('auth.page.login');
         }
