@@ -13,61 +13,83 @@
                                 <div class="col-12 col-lg-12">
                                     <h3 class="mb-3">Bienvenu(e), {{Str::upper( \Illuminate\Support\Facades\Auth::user()->roles->intitule )}} {{Str::upper( \Illuminate\Support\Facades\Auth::user()->name )}} </h3>
                                     <div>Vivez simplement avec Gestion Médicale. Une application fait sur mésure pour la gestion de votre établisement Médicale.</div>
-                                </div><!--//col-->
+                                </div>
 
-                            </div><!--//row-->
+                            </div>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div><!--//app-card-body-->
+                        </div>
 
-                    </div><!--//inner-->
-                </div><!--//app-card-->
+                    </div>
+                </div>
 
                 <div class="row g-4 mb-4">
-                    <div class="col-6 col-lg-6">
+                    <div class="col-4 col-lg-4">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Examen du jour</h4>
+                                <h4 class="stats-type mb-1">Total Consultation du Jour</h4>
                                 <div class="stats-figure">2</div>
                                 <div class="stats-meta text-success">
                                 </div>
-                            </div><!--//app-card-body-->
+                            </div>
                             <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
+                        </div>
+                    </div>
 
-                    <div class="col-6 col-lg-6">
+                    <div class="col-4 col-lg-4">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Nombre Total des Examens</h4>
+                                <h4 class="stats-type mb-1">Total Rendez-vous du Jour</h4>
                                 <div class="stats-figure">3</div>
                                 <div class="stats-meta text-success">
                                 </div>
-                            </div><!--//app-card-body-->
+                            </div>
                             <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
-                    <div class="col-6 col-lg-6">
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-4">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Résultat du jour</h4>
+                                <h4 class="stats-type mb-1">Total Ordonnance du Jour</h4>
                                 <div class="stats-figure">4</div>
                                 <div class="stats-meta text-success">
                                 </div>
-                            </div><!--//app-card-body-->
+                            </div>
                             <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
-                    <div class="col-6 col-lg-6">
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-4">
                         <div class="app-card app-card-stat shadow-sm h-100">
                             <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Total Résultat</h4>
+                                <h4 class="stats-type mb-1">Total Consultations</h4>
                                 <div class="stats-figure">3</div>
                                 <div class="stats-meta text-success">
                                 </div>
-                            </div><!--//app-card-body-->
+                            </div>
                             <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-4">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <h4 class="stats-type mb-1">Total Rendez-vous</h4>
+                                <div class="stats-figure">3</div>
+                                <div class="stats-meta text-success">
+                                </div>
+                            </div>
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-4">
+                        <div class="app-card app-card-stat shadow-sm h-100">
+                            <div class="app-card-body p-3 p-lg-4">
+                                <h4 class="stats-type mb-1">Total Ordonnances</h4>
+                                <div class="stats-figure">3</div>
+                                <div class="stats-meta text-success">
+                                </div>
+                            </div>
+                            <a class="app-card-link-mask" href="#"></a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tab-content" id="orders-table-tab-content">
@@ -108,15 +130,15 @@
 
                                         </tbody>
                                     </table>
-                                </div><!--//table-responsive-->
+                                </div>
 
-                            </div><!--//app-card-body-->
-                        </div><!--//app-card-->
+                            </div>
+                        </div>
                         <nav class="app-pagination">
                             <ul class="pagination justify-content-center">
 
                             </ul>
-                        </nav><!--//app-pagination-->
+                        </nav>
                         @if(Session::has('message'))
                             <script>
                                 swal("Message", "{{ Session::get('message') }}", 'danger', {
@@ -125,10 +147,10 @@
                                 });
                             </script>
                         @endif
-                    </div><!--//tab-pane-->
-                </div><!--//tab-content-->
+                    </div>
+                </div>
 
-            </div><!--//container-fluid-->
+            </div>
         </div>
     </div>
 @endsection
