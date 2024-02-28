@@ -68,6 +68,15 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
+    public function user_patient_exam()
+    {
+        return $this->belongsTo(patient_examen::class);
+    }
+    /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function rendez()
     {
         return $this->hasMany(rendez_vous::class, 'role_user_table', 'user_id', 'roles_id');

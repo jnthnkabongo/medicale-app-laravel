@@ -12,4 +12,14 @@ class examens extends Model
         'id',
         'intitule_examen'
     ];
+
+     /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function exam_patient_exam()
+    {
+        return $this->belongsTo(patient_examen::class);
+    }
 }

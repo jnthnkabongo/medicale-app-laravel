@@ -38,6 +38,15 @@ class patients extends Model
     {
         return $this->belongsTo(roles::class);
     }
+     /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function patient_patient_exam()
+    {
+        return $this->belongsTo(patient_examen::class);
+    }
 
     public function AllDuJour($query)
     {
