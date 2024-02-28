@@ -45,7 +45,7 @@ class homeController extends Controller
             return view('labo.pages-labo.index-labo');
         }if ($roles == '4') {
             // Si le role est 4 alors on dirige l'utilisateur a l'interface de la receptionniste
-            return view('receptionniste.pages-recep.index-recep');
+            return view('medecin.pages-medecin.index-medecin');
         }
         if ($roles == '5') {
             // Si le role est 5 alors on dirige l'utilisateur a l'interface de l'infirmier

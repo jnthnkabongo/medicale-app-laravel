@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use App\Http\Middleware\adminConnecter;
+use App\Http\Middleware\laboConnecter;
+use App\Http\Middleware\medecinConnecter;
 use App\Http\Middleware\userConnecter;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -68,5 +70,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'connexion' => userConnecter::class,
         'administrateur' => adminConnecter::class,
+        'laborantin' =>laboConnecter::class,
+        'medecin' =>medecinConnecter::class,
     ];
 }

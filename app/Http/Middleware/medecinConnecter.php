@@ -4,10 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Auth;
 
-class userConnecter
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
+
+class medecinConnecter
 {
     /**
      * Handle an incoming request.
@@ -16,15 +17,12 @@ class userConnecter
      */
     public function handle(Request $request, Closure $next): Response
     {
-        //Verification de la session
-
-        if(Auth::user()){
-            //Au cas ou ce dernier est connecter on continue
+        // Verification si l'utilisateur est connecté
+        if (Auth::user()) {
             return $next($request);
+        }else {
+            return redirect()->to_route('page-404');
         }
-        else{
-            // Au cas contraire il tombera sur la page 404
-            return redirect()->route('page-404');
-        }
+
     }
 }

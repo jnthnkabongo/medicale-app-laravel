@@ -4,10 +4,13 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\dashController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\indexController;
+use App\Http\Controllers\laboController;
+use App\Http\Controllers\medecinController;
 use App\Http\Controllers\parametresController;
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\plainteController;
 use App\Http\Controllers\rendez_vousController;
+use App\Http\Middleware\medecinConnecter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +55,16 @@ Route::middleware(['connexion'])->group(function () {
     //Les routes de la partie parametres j'ai sorti ce dernier du group prefix sous
     //pretexte que les styles ne sont pas pris en charge...
 
+});
+
+// Les routes de la partie du laborantin
+Route::middleware(['laborantin'])->group(function (){
+    Route::get('laborantin-index', [laboController::class, 'index'])->name('laborantin-index');
+});
+
+// Les routes de la partie du medecin
+Route::middleware('medecin')->group(function (){
+    Route::get('medecin-index', [medecinController::class, 'index'])->name('index-medecin');
 });
 
 // Les routes des administrateurs
