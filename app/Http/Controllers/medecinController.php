@@ -69,4 +69,13 @@ class medecinController extends Controller
         $patients_consultation = patients::paginate(10);
         return view('medecin.pages-medecin.consultation.index-consultation', compact('patients_consultation'));
     }
+
+    public function creation_consultation(patients $item)
+    {
+        return view('medecin.pages-medecin.consultation.creation-consultation', compact('item'));
+    }
+    public function creation_consultations()
+    {
+
+    }
 }

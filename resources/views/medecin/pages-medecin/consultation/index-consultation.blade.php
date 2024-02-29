@@ -28,7 +28,7 @@
                                         <tbody>
                                             @forelse ($patients_consultation as $item)
                                                 <tr>
-                                                    <td class="cell"></td>
+                                                    <td class="cell">{{ ($patients_consultation->perPage() * ($patients_consultation->currentPage() - 1 ))+ $loop->iteration }}</td>
                                                     <td class="cell">{{ Str::upper($item->code_patient) }}</td>
                                                     <td class="cell">{{ Str::upper($item->nom) }}</td>
                                                     <td class="cell">{{ $item->email }}</td>
@@ -36,7 +36,7 @@
                                                     <td class="cell">{{ $item->datenais }}</td>
                                                     <td class="cell">{{ Str::upper($item->note) }}</td>
                                                     <td class="cell">
-                                                        <a class="btn btn-sm" href=""><i class="fa-solid fa-edit fa-1x"></i></a>
+                                                        <a class="btn btn-sm" href="{{ route('creation-consultation',$item->id) }}"><i class="fa-solid fa-edit fa-1x"></i></a>
                                                         <a class="btn btn-sm" href=""><i class="fa-solid fa-eye fa-1x"></i></a>
                                                     </td>
                                                 </tr>
