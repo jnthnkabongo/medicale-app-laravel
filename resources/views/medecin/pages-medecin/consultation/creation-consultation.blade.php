@@ -68,15 +68,26 @@
                                     <h4>Antécédents Médicaux</h4>
                                     <hr class="mb-4">
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Nom utilisateur</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                        <label for="setting-input-2" class="form-label">Allergies</label>
+                                        <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 60px"></textarea>
                                         @error("name")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">E-mail utilisateur</label>
-                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                        <label for="setting-input-2" class="form-label">Maladies chroniques</label>
+                                        <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 60px"></textarea>
+                                        @error("email")
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-1">
+                                        <label for="setting-input-2" class="form-label">Maladies Antérieures</label>
+                                        <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 60px"></textarea>
+                                    </div>
+                                    <div class="mb-1">
+                                        <label for="setting-input-2" class="form-label">Médicaments en cours</label>
+                                        <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 60px"></textarea>
                                         @error("email")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -86,54 +97,24 @@
                                     <h4>Motif de Consultation</h4>
                                     <hr class="mb-4">
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Nom utilisateur</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                        <label for="setting-input-2" class="form-label">Descriptions des symptômes</label>
+                                        <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 100px"></textarea>
                                         @error("name")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">E-mail utilisateur</label>
-                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                        @error("email")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Mot de passe utilisateur</label>
-                                        <input type="password" class="form-control" name="password" value="{{ old('password') }}">
-                                        @error("password")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Rôle utilisateur</label>
-                                        <select class="form-control" name="roles_id" id="">
-                                            <option value="">Choisissez un rôle utilisateur</option>
-
-                                        </select>
-                                        @error("roles_id")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control" name="plainte_id" value="" hidden>
                                     </div>
                                 </div> <div class="col-6 col-md-6 mt-3">
                                     <h4>Examen Physique</h4>
                                     <hr class="mb-4">
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Nom utilisateur</label>
+                                        <label for="setting-input-2" class="form-label">Tension Artérielle</label>
                                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                                         @error("name")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">E-mail utilisateur</label>
+                                        <label for="setting-input-2" class="form-label">Frequence Cardiaque</label>
                                         <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                                         @error("email")
                                             <div class="text-danger">{{ $message }}</div>
@@ -141,7 +122,7 @@
                                     </div>
 
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Mot de passe utilisateur</label>
+                                        <label for="setting-input-2" class="form-label">Temperature</label>
                                         <input type="password" class="form-control" name="password" value="{{ old('password') }}">
                                         @error("password")
                                             <div class="text-danger">{{ $message }}</div>
@@ -149,73 +130,37 @@
                                     </div>
 
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Rôle utilisateur</label>
-                                        <select class="form-control" name="roles_id" id="">
-                                            <option value="">Choisissez un rôle utilisateur</option>
-
-                                        </select>
+                                        <label for="setting-input-2" class="form-label">Poids</label>
+                                        <input type="text" class="form-control">
                                         @error("roles_id")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
 
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control" name="plainte_id" value="" hidden>
-                                    </div>
                                 </div>
                                 <div class="col-6 col-md-6 mt-3">
                                     <h4>Diagnostic Préliminaire</h4>
                                     <hr class="mb-4">
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Nom utilisateur</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                        <label for="setting-input-2" class="form-label">Diagnostic Préliminaire du Médecin</label>
+                                        <textarea class="form-control" name="" id="" cols="30" rows="10" style="height:100px"></textarea>
                                         @error("name")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">E-mail utilisateur</label>
-                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                        @error("email")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Mot de passe utilisateur</label>
-                                        <input type="password" class="form-control" name="password" value="{{ old('password') }}">
-                                        @error("password")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Rôle utilisateur</label>
-                                        <select class="form-control" name="roles_id" id="">
-                                            <option value="">Choisissez un rôle utilisateur</option>
-
-                                        </select>
-                                        @error("roles_id")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control" name="plainte_id" value="" hidden>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-6 mt-3">
                                     <h4>Récommandations</h4>
                                     <hr class="mb-4">
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Nom utilisateur</label>
+                                        <label for="setting-input-2" class="form-label">Traitements Récommandé</label>
                                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                                         @error("name")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">E-mail utilisateur</label>
+                                        <label for="setting-input-2" class="form-label">Examens Complémentaires Récommandés</label>
                                         <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                                         @error("email")
                                             <div class="text-danger">{{ $message }}</div>
@@ -223,32 +168,14 @@
                                     </div>
 
                                     <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Mot de passe utilisateur</label>
+                                        <label for="setting-input-2" class="form-label">Instruction pour le Patient</label>
                                         <input type="password" class="form-control" name="password" value="{{ old('password') }}">
                                         @error("password")
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Rôle utilisateur</label>
-                                        <select class="form-control" name="roles_id" id="">
-                                            <option value="">Choisissez un rôle utilisateur</option>
-
-                                        </select>
-                                        @error("roles_id")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control" name="plainte_id" value="" hidden>
-                                    </div>
                                 </div>
-
                             </div>
-
-
 
                             <button type="submit" class="btn app-btn-primary mt-3 w-100" >Enregistrer </button>
                         </form>
