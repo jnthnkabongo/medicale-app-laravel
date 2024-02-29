@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\patients;
 class medecinController extends Controller
 {
     /**
@@ -60,5 +60,13 @@ class medecinController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    // Les routes concernant la consultation
+
+    public function index_consultation()
+    {
+        $patients_consultation = patients::paginate(10);
+        return view('medecin.pages-medecin.consultation.index-consultation', compact('patients_consultation'));
     }
 }

@@ -65,6 +65,9 @@ Route::middleware(['laborantin'])->group(function (){
 // Les routes de la partie du medecin
 Route::middleware('medecin')->group(function (){
     Route::get('medecin-index', [medecinController::class, 'index'])->name('index-medecin');
+
+    // Les routes de la partie medecin concernant les consultations
+    Route::get('index-consultation', [medecinController::class, 'index_consultation'])->name('index-consultation');
 });
 
 // Les routes des administrateurs
