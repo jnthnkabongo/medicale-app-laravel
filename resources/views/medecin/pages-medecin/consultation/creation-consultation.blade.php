@@ -106,37 +106,45 @@
                                 </div> <div class="col-6 col-md-6 mt-3">
                                     <h4>Examen Physique</h4>
                                     <hr class="mb-4">
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Tension Artérielle</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
-                                        @error("name")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Frequence Cardiaque</label>
-                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                        @error("email")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-1">
+                                                <label for="setting-input-2" class="form-label">Tension Artérielle</label>
+                                                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                                @error("name")
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-1">
+                                                <label for="setting-input-2" class="form-label">Frequence Cardiaque</label>
+                                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                                @error("email")
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-1">
+                                                <label for="setting-input-2" class="form-label">Temperature</label>
+                                                <input type="password" class="form-control" name="password" value="{{ old('password') }}">
+                                                @error("password")
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
 
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Temperature</label>
-                                        <input type="password" class="form-control" name="password" value="{{ old('password') }}">
-                                        @error("password")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-1">
+                                                <label for="setting-input-2" class="form-label">Poids</label>
+                                                <input type="text" class="form-control">
+                                                @error("roles_id")
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div class="mb-1">
-                                        <label for="setting-input-2" class="form-label">Poids</label>
-                                        <input type="text" class="form-control">
-                                        @error("roles_id")
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
                                 </div>
                                 <div class="col-6 col-md-6 mt-3">
                                     <h4>Diagnostic Préliminaire</h4>
