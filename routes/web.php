@@ -70,6 +70,9 @@ Route::middleware('medecin')->group(function (){
     Route::get('index-consultation', [medecinController::class, 'index_consultation'])->name('index-consultation');
     Route::get('medecin-consultation-creation-{item}',[medecinController::class, 'creation_consultation'])->name('creation-consultation');
     Route::post('medecin-consultation-creation',[medecinController::class, 'creation_consultations'])->name('soumission-formulaire-consultation');
+
+    //Les routes de la partie medecin concernant les resultats
+    Route::get('index-resultat', [medecinController::class, 'index_resultats'])->name('index-resultat');
 });
 
 // Les routes des administrateurs

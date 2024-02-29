@@ -78,4 +78,9 @@ class medecinController extends Controller
     {
 
     }
+
+    public function index_resultats()
+    {
+        return view('medecin.pages-medecin.resultat.index-resultat');
+    }
 }
