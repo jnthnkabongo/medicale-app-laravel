@@ -20,7 +20,6 @@
         <div class="row">
             <div class="col-12 col-md-12">
                 <div class="app-card app-card-settings shadow-sm p-4 ">
-
                     <div class="app-card-body">
                         <form class="settings-form"  action="{{ route('admin_personnel_creation') }}" method="POST" >
                            @csrf
@@ -103,7 +102,8 @@
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div> <div class="col-6 col-md-6 mt-3">
+                                </div>
+                                <!--</div> <div class="col-6 col-md-6 mt-3">
                                     <h4>Examen Physique</h4>
                                     <hr class="mb-4">
                                     <div class="row">
@@ -145,7 +145,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="col-6 col-md-6 mt-3">
                                     <h4>Diagnostic Préliminaire</h4>
                                     <hr class="mb-4">

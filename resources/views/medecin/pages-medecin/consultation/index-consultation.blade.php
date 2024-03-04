@@ -1,5 +1,9 @@
 @extends('medecin.layouts-medecin.entete-medecin')
 @section('content')
+<p>kitty ipsum dolor, sit amet consectetur adipisicing elit. Harum, distinctio veritatis
+    exercitationem non placeat eaque alias eligendi tempora asperiores illo quibusdam quas maxime optio,
+    id aperiam quidem dolores eos corporis!</p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eius quod quae quas veritatis, impedit voluptatibus rerum reprehenderit ullam. Qui minus dolorem eveniet commodi nulla officiis ab alias quia ducimus.
     <div class="app-wrapper ">
         <div class="app-content pt-3 p-md-3 p-lg-4 bg-gray">
             <div class="container-xl mt-5">
